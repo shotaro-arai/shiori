@@ -1,35 +1,44 @@
-<div class="welcome">
-  <h2>ようこそ</h2>
-  <h2>shioriへ</h2>
-  <div class="circle"></div>
-</div>
+<div class="form-wrapper">
+  <div class="user-header">  
+    <div class="welcome">
+      <h2>ようこそ</h2>
+      <h2>shioriへ</h2>
+    </div>
+    <div class="user-link-to">
+      <%= link_to 'トップページ', root_path, class:"user-to-root"%>
+      <%= link_to 'ログインする', new_user_session_path, class:"user-to-sign-in"%>
+    </div>
+  </div>
 
-<div class=user-wrapper>
+  <%# ここからフォーム %>
   <%= form_for(@user, url: user_registration_path) do |f| %>
     <%= render "devise/shared/error_messages", resource: @user %>
 
-    <div class="field">
-      <%= f.label :あなたのニックネームを決めてください, class: "input-object" %>
-      <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "input-box" %>
-    </div>
 
-    <div class="field">
-      <%= f.label :メールアドレスを入力してください, class: "input-object" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input-box" %>
-    </div>
+    <div class=user-wrapper>
+      <div class="field">
+        <%= f.label :あなたのニックネームを決めてください, class: "input-object" %>
+        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "input-box" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :６文字以上でパスワードを決めてください, class: "input-object" %>
-      <%= f.password_field :password, autocomplete: "new-password", class: "input-box" %>
-    </div>
+      <div class="field">
+        <%= f.label :メールアドレスを入力してください, class: "input-object" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input-box" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :上記と同じパスワードを入力してください, class: "input-object" %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-box" %>
-    </div>
+      <div class="field">
+        <%= f.label :６文字以上でパスワードを決めてください, class: "input-object" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "input-box" %>
+      </div>
 
-    <div class="actions next-btn">
-      <%= f.submit "次へすすむ", class: "next-box" %>
+      <div class="field">
+        <%= f.label :上記と同じパスワードを入力してください, class: "input-object" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-box" %>
+      </div>
+
+      <div class="actions next-btn">
+        <%= f.submit "次へすすむ", class: "next-box" %>
+      </div>
     </div>
   <% end %>
 </div>
