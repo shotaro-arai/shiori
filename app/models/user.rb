@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_one :profile
   validates :nickname, presence: true
+  
+  PASSWORD_REGEX = /\A[a-z0-9]+\z/i.freeze
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'は英字か数字のみ使用できます' 
 end
