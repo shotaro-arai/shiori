@@ -1,0 +1,90 @@
+/* ヘッダー */
+
+header{
+  display: flex;
+  background-color: rgb(245, 215, 66);
+  width: 100%;
+  height: 30%;
+}
+
+.left-contents{
+  display: flex;
+  padding-right: 30px;
+  width: 30%;
+}
+
+.app-icon{
+  width: 100px;
+  height: 100px;
+  margin-top: 15px;
+}
+
+.app-title{
+  font-size: 46px;
+  color: white;
+  font-weight: bold;
+  margin: 50px 0 0 0;
+  letter-spacing: 5px;
+}
+
+.left-contents :not(.app-title){
+  font-family: 'Noto Serif JP', serif;
+}
+
+.search-form{
+  padding: 0 50px;
+  display: flex;
+  height: 25px;
+  margin-top: 80px;
+  width:40%;
+  position: relative;
+}
+
+.search-box{
+  width: 280px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color:  rgb(241, 230, 170);
+  font-size: 16px;
+  color: rgb(85, 79, 79);
+  padding-left: 10px;
+}
+
+.search-icon{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 3px;
+}
+
+.right-contents{
+  width: 30%;
+  padding-top: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ .user-registration{
+
+ }
+
+.sign-up , .sign-in, .mypage, .sign-out{
+  text-decoration: none;
+  border: 1px solid white;
+  background-color: white;
+  padding: 3px 10px;
+  border-radius: 10px;
+  color: black;
+  margin-right: 10px;
+  box-shadow:3px 3px rgba(85, 79, 79, 0.5);
+}
+
+.genre-selecrt{
+  width:40%;
+  height: 25px;
+  background-color: rgb(255, 255, 255);
+  box-shadow:3px 3px rgba(85, 79, 79, 0.5);
+  margin-top: 28px;
+  text-align: center;
+}
