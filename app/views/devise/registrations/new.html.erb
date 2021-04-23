@@ -14,8 +14,7 @@
   <%= form_for(@user, url: user_registration_path) do |f| %>
     <%= render "devise/shared/error_messages", resource: @user %>
 
-
-    <div class=user-wrapper>
+    <div class="user-wrapper">
       <div class="field">
         <%= f.label :あなたのニックネームを決めてください, class: "input-object" %>
         <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "input-box" %>

@@ -14,8 +14,7 @@
   <%= form_for @profile do |f| %>
     <%= render "devise/shared/error_messages", resource: @profile %>
   
-
-    <div class=user-wrapper>
+    <div class="user-wrapper">
       <div class="field">
         <%= f.label :自己紹介しましょう, class: "input-object"  %>
         <%= f.text_area :text, autofocus: true, autocomplete: "text", class: "input-box self-port" %>
