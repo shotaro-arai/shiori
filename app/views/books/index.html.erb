@@ -4,31 +4,211 @@
     <h1 class="app-title">shiori</h1>
   </div>
 
-  <div class="search-form">
-    <input type="text" class="search-box" placeholder="検索する">
-    <button type="submit" class="search-button">
-      <%= image_tag "k0202_4.png", class: "search-icon" %>
-    </button>
+  <div class="center-contents">
+    <div class="hello-user">
+      <% if user_signed_in? %>  
+        <p>こんにちは    ゲストさん</p> 
+      <% end %>
+    </div>  
+    <div class="search-form">
+      <input type="text" class="search-box" placeholder="検索する">
+      <button type="submit" class="search-button">
+        <%= image_tag "k0202_4.png", class: "search-icon" %>
+      </button>
+    </div>
   </div>
 
   <div class="right-contents">
-    <!-- ユーザーがログインしていないときに表示 -->
-    <div class="user-registration">
-      <%= link_to '今すぐ始める', new_user_registration_path, class: "sign-up" %>
-      <%= link_to 'ログインする', new_user_session_path, class: "sign-in" %>
-    </div>
-      
     <!-- ユーザーがログインしているときに表示 -->
-    <!-- <div class="sign-in-user">
-      <a class="mypage" href="#">マイページ</a>
-      <a class="sign-out" href="#">ログアウトする</a>
-    </div> -->
+    <% if user_signed_in? %>
+      <div class="sign-in-user">
+        <a class="mypage" href="#">マイページ</a>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "sign-out" %>
+      </div>
+    <!-- ユーザーがログインしていないときに表示 -->
+    <% else %>
+      <div class="user-registration">
+        <%= link_to '今すぐ始める', new_user_registration_path, class: "sign-up" %>
+        <%= link_to 'ログインする', new_user_session_path, class: "sign-in" %>
+      </div>
+    <% end %>
     <div class="genre-selecrt">ジャンル</div>
   </div>
 </header>
 
+<div class="catch">
+  <div class="copy-box">
+    <div class="catch-copy">
+      <p><span>本</span>好きなあなたへ</p>
+      <div class="catch-under">
+        <p>Shioriはあなたの感動した気持ちを誰かと共有するサービスです</p>
+        <p>映画を観たあとのように、音楽を聴いたあとのように</p>
+      </div>
+    </div>
+    <div class="catch-belt">
+      Need any more books?
+    </div>
+  </div>
+</div>
 
-<div class="main-wrapper">
-  
+<div class="main-contents">
+  <div class="main-wrapper">
+    <div class="post">
+      <div class="posted-user">
+        <p>@user.nicname</p>
+        <p>何時間前</p>
+      </div>
+      <div class="shiori-box">
+        <div class="shiori">
+          <div class="your-bookmark">
+            自分が知ろうとしない限り、ある物事は知識へと変化しない。その物事に興味がなければ何も変わらないオブジェクトが脳にたまるだけで、それは雑学であり知識ではない。知識とはその物事に自分の考えを掛け合わせ流ことでしか生成されない。
+          </div>
+        </div>
+      </div>
+      <div class="book-box">
+        <div class="binded-shiori">
+          <div class="quote">
+            - 知ると言うことは、自分がガラッと変わることです。したがって、世界が全く変わってしまう。見え方が変わってしまう。それが昨日までとほとんど同じ世界でも。-
+          </div>
+          <div class="book-information">
+            <div class="book title">引用​『バカの壁』</div>
+            <div class="book author">養老孟子 : 著</div>
+            <div class="book publish">新潮新書</div>
+            <div class="book year">2003年</div>
+            <div class="book page">P60~</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="post">
+      <div class="posted-user">
+        <p>@user.nicname</p>
+        <p>何時間前</p>
+      </div>
+      <div class="shiori-box">
+        <div class="shiori">
+          <div class="your-bookmark">
+            自分が知ろうとしない限り、ある物事は知識へと変化しない。その物事に興味がなければ何も変わらないオブジェクトが脳にたまるだけで、それは雑学であり知識ではない。知識とはその物事に自分の考えを掛け合わせ流ことでしか生成されない。
+          </div>
+        </div>
+      </div>
+      <div class="book-box">
+        <div class="binded-shiori">
+          <div class="quote">
+            - 知ると言うことは、自分がガラッと変わることです。したがって、世界が全く変わってしまう。見え方が変わってしまう。それが昨日までとほとんど同じ世界でも。-
+          </div>
+          <div class="book-information">
+            <div class="book title">引用​『バカの壁』</div>
+            <div class="book author">養老孟子 : 著</div>
+            <div class="book publish">新潮新書</div>
+            <div class="book year">2003年</div>
+            <div class="book page">P60~</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="post">
+      <div class="posted-user">
+        <p>@user.nicname</p>
+        <p>何時間前</p>
+      </div>
+      <div class="shiori-box">
+        <div class="shiori">
+          <div class="your-bookmark">
+            自分が知ろうとしない限り、ある物事は知識へと変化しない。その物事に興味がなければ何も変わらないオブジェクトが脳にたまるだけで、それは雑学であり知識ではない。知識とはその物事に自分の考えを掛け合わせ流ことでしか生成されない。
+          </div>
+        </div>
+      </div>
+      <div class="book-box">
+        <div class="binded-shiori">
+          <div class="quote">
+            - 知ると言うことは、自分がガラッと変わることです。したがって、世界が全く変わってしまう。見え方が変わってしまう。それが昨日までとほとんど同じ世界でも。-
+          </div>
+          <div class="book-information">
+            <div class="book title">引用​『バカの壁』</div>
+            <div class="book author">養老孟子 : 著</div>
+            <div class="book publish">新潮新書</div>
+            <div class="book year">2003年</div>
+            <div class="book page">P60~</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="post">
+      <div class="posted-user">
+        <p>@user.nicname</p>
+        <p>何時間前</p>
+      </div>
+      <div class="shiori-box">
+        <div class="shiori">
+          <div class="your-bookmark">
+            自分が知ろうとしない限り、ある物事は知識へと変化しない。その物事に興味がなければ何も変わらないオブジェクトが脳にたまるだけで、それは雑学であり知識ではない。知識とはその物事に自分の考えを掛け合わせ流ことでしか生成されない。
+          </div>
+        </div>
+      </div>
+      <div class="book-box">
+        <div class="binded-shiori">
+          <div class="quote">
+            - 知ると言うことは、自分がガラッと変わることです。したがって、世界が全く変わってしまう。見え方が変わってしまう。それが昨日までとほとんど同じ世界でも。-
+          </div>
+          <div class="book-information">
+            <div class="book title">引用​『バカの壁』</div>
+            <div class="book author">養老孟子 : 著</div>
+            <div class="book publish">新潮新書</div>
+            <div class="book year">2003年</div>
+            <div class="book page">P60~</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="post">
+      <div class="posted-user">
+        <p>@user.nicname</p>
+        <p>何時間前</p>
+      </div>
+      <div class="shiori-box">
+        <div class="shiori">
+          <div class="your-bookmark">
+            自分が知ろうとしない限り、ある物事は知識へと変化しない。その物事に興味がなければ何も変わらないオブジェクトが脳にたまるだけで、それは雑学であり知識ではない。知識とはその物事に自分の考えを掛け合わせ流ことでしか生成されない。
+          </div>
+        </div>
+      </div>
+      <div class="book-box">
+        <div class="binded-shiori">
+          <div class="quote">
+            - 知ると言うことは、自分がガラッと変わることです。したがって、世界が全く変わってしまう。見え方が変わってしまう。それが昨日までとほとんど同じ世界でも。-
+          </div>
+          <div class="book-information">
+            <div class="book title">引用​『バカの壁』</div>
+            <div class="book author">養老孟子 : 著</div>
+            <div class="book publish">新潮新書</div>
+            <div class="book year">2003年</div>
+            <div class="book page">P60~</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="side-wrapper">
+    <div class="top3">
+      <h3>人気の投稿！</h3>
+      <ul>
+        <li>ほにゃらら</li>
+          <p>誰それ</p>
+        <li>ほにゃらら</li>
+          <p>誰それ</p>
+        <li>ほにゃらら</li>
+          <p>誰それ</p>
+      </ul>
+    </div>
+    <div class="news">
+      <h3>お知らせ</h3>
+      <ul>
+        <li>shioriが完成しました
+        <li>
+        <li>
+      <ul>
+    </div>
+  </div>
 </div>
 <footer></footer>
