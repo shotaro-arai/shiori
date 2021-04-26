@@ -72,46 +72,6 @@
   top: 60px;
 }
 
-.field{
-  padding-top: 10px;
-  margin-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: rgb(0, 0, 0);
-}
-
-.input-object{
-  margin-bottom: 15px;
-}
-
-.input-box{
-  width: 260px;
-  padding: 2px 10px;
-  border-bottom: 1px solid rgb(211, 182, 159);
-  outline: none;
-}
-
-.actions{
-  text-align: right;
-  padding-right: 25px;
-  border-bottom: 1px dotted rgb(211, 182, 159);
-}
-
-.next-box:hover,.submit-box:hover,.log-in-btn:hover{
-  color: rgb(0, 204, 255);
-  font-weight: bold;
-  transition: color 0.8s;
-}
-
-.next-btn{
-  padding-top: 50px;
-}
-
-.next-box, .submit-box,.log-in-btn{
-  font-size: 18px;
-  padding-bottom: 5px;
-}
 
 
 /* ラジオボタン */
@@ -182,4 +142,12 @@
 
 .log-in-btn{
   margin-top: 140px;
+  font-size: 18px;
+  padding-bottom: 5px;
+}
+
+.log-in-btn:hover{
+  color: rgb(0, 204, 255);
+  font-weight: bold;
+  transition: color 0.8s;
 }

@@ -1,40 +1,4 @@
-<header>
-  <div class="left-contents">
-    <%= image_tag "shiori_white.png", class: "app-icon" %>
-    <h1 class="app-title">shiori</h1>
-  </div>
-
-  <div class="center-contents">
-    <div class="hello-user">
-      <% if user_signed_in? %>  
-        <p>こんにちは    ゲストさん</p> 
-      <% end %>
-    </div>  
-    <div class="search-form">
-      <input type="text" class="search-box" placeholder="検索する">
-      <button type="submit" class="search-button">
-        <%= image_tag "k0202_4.png", class: "search-icon" %>
-      </button>
-    </div>
-  </div>
-
-  <div class="right-contents">
-    <!-- ユーザーがログインしているときに表示 -->
-    <% if user_signed_in? %>
-      <div class="sign-in-user">
-        <a class="mypage" href="#">マイページ</a>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "sign-out" %>
-      </div>
-    <!-- ユーザーがログインしていないときに表示 -->
-    <% else %>
-      <div class="user-registration">
-        <%= link_to '今すぐ始める', new_user_registration_path, class: "sign-up" %>
-        <%= link_to 'ログインする', new_user_session_path, class: "sign-in" %>
-      </div>
-    <% end %>
-    <div class="genre-selecrt">ジャンル</div>
-  </div>
-</header>
+<%= render "shares/header" %>
 
 <div class="catch">
   <div class="copy-box">
@@ -54,31 +18,34 @@
 <div class="main-contents">
   <div class="main-wrapper">
     <div class="post">
-      <div class="posted-user">
-        <p>@user.nicname</p>
-        <p>何時間前</p>
-      </div>
-      <div class="shiori-box">
-        <div class="shiori">
-          <div class="your-bookmark">
-            自分が知ろうとしない限り、ある物事は知識へと変化しない。その物事に興味がなければ何も変わらないオブジェクトが脳にたまるだけで、それは雑学であり知識ではない。知識とはその物事に自分の考えを掛け合わせ流ことでしか生成されない。
+      <% @books.each do |book| %>
+        <div class="posted-user">
+          @<%= book.user.nickname %>
+          <p>何時間前</p>
+        </div>
+        <div class="shiori-box">
+          <div class="shiori">
+            <div class="your-bookmark">
+              <%= book.text %>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="book-box">
-        <div class="binded-shiori">
-          <div class="quote">
-            - 知ると言うことは、自分がガラッと変わることです。したがって、世界が全く変わってしまう。見え方が変わってしまう。それが昨日までとほとんど同じ世界でも。-
-          </div>
-          <div class="book-information">
-            <div class="book title">引用​『バカの壁』</div>
-            <div class="book author">養老孟子 : 著</div>
-            <div class="book publish">新潮新書</div>
-            <div class="book year">2003年</div>
-            <div class="book page">P60~</div>
+        <div class="book-box">
+          <div class="binded-shiori">
+            <div class="quote">
+              - <%= book.quote %> -
+            </div>
+            <div class="book-information">
+              <div class="book title">引用​『<%= book.title %>』</div>
+              <div class="book publish">~<%= book.title_option %>~</div>
+              <div class="book author"><%= book.author %>: 著</div>
+              <div class="book publish"><%= book.publish %></div>
+              <div class="book year"><%= book.year %></div>
+              <div class="book page"><%= book.page %></div>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
     <div class="post">
       <div class="posted-user">

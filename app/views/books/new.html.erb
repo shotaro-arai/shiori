@@ -1,1 +1,52 @@
-test
+<%= render "shares/header"%>
+  
+  <%= form_with model: @book, url: books_path(current_user.id), local: true do |f| %>
+    
+    <%= render 'shares/error_message', model: f.object %>
+    
+    <div class="book-wrapper">
+      <div class="field">
+        <%= f.label :あなたのことば, class: "input-object" %>
+        <%= f.text_area :text, autofocus: true, autocomplete: "text", class: "input-box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :引用した一節, class: "input-object" %>
+        <%= f.text_area :quote, autofocus: true, autocomplete: "quote", class: "input-box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :本のタイトル, class: "input-object" %>
+        <%= f.text_field :title, autocomplete: "title", class: "input-box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :章やページタイトルなど, class: "input-object" %>
+        <%= f.text_area :title_option, autocomplete: "title_option", class: "input-box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :本の著者, class: "input-object" %>
+        <%= f.text_field :author, autocomplete: "author", class: "input-box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :本の出版社, class: "input-object" %>
+        <%= f.text_field :publish, autocomplete: "publish", class: "input-box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :出版された年, class: "input-object" %>
+        <%= f.number_field :year, autocomplete: "new-password", class: "input-box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :引用先のページ, class: "input-object" %>
+        <%= f.number_field :page, autocomplete: "new-password", class: "input-box" %>
+      </div>
+
+      <div class="actions next-btn">
+        <%= f.submit "投稿します", class: "submit-box" %>
+      </div>
+    </div>
+  <% end %>
