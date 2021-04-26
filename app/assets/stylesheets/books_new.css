@@ -1,5 +1,5 @@
 .book-wrapper{
-  height: 1100px;
+  height: 1200px;
   width: 550px;
   box-shadow: 10px 15px 5px rgba(0, 0, 0, 0.5);
   background-color: rgba(248, 247, 245, 0.3);
@@ -8,4 +8,23 @@
   position: absolute;
   left: 450px;
   top: 60px;
+}
+
+.hidden{
+  display: none;
+}
+
+.fa-camera-retro{
+  font-size: 36px;
+  cursor: pointer;
+}
+
+.fa-camera-retro:hover{
+  transform:scale(1.1);
+  transition-duration: 0.5s;
+}
+
+.u-can-photo{
+  border-bottom: 1px solid rgb(211, 182, 159);
+  padding-right: 10px;
 }

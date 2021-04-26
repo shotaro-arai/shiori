@@ -6,7 +6,7 @@
       <p><span>本</span>好きなあなたへ</p>
       <div class="catch-under">
         <p>Shioriはあなたの感動した気持ちを誰かと共有するサービスです</p>
-        <p>映画を観たあとのように、音楽を聴いたあとのように</p>
+        <p>映画を観たあとのように、音楽を聴いたあとのように...</p>
       </div>
     </div>
     <div class="catch-belt">
@@ -17,144 +17,41 @@
 
 <div class="main-contents">
   <div class="main-wrapper">
-    <div class="post">
-      <% @books.each do |book| %>
-        <div class="posted-user">
-          @<%= book.user.nickname %>
-          <p>何時間前</p>
-        </div>
-        <div class="shiori-box">
-          <div class="shiori">
-            <div class="your-bookmark">
-              <%= book.text %>
+    <% @books.each do |book| %>
+      <div class="post">
+        <div class="text-area">
+          <div class="who-is-post">
+            @<%= book.user.nickname %>
+            <%= time_ago_in_words(book.created_at) %>前
+          </div>
+          <div class="shiori-box">
+            <div class="shiori">
+              <div class="text-for">
+                <%= book.text %>
+              </div>
+            </div>
+          </div>
+          <div class="book-box">
+            <div class="binding-shiori">
+              <div class="quote">
+                - <%= book.quote %> -
+              </div>
+              <div class="book-information">
+                <div class="book title">引用元​『<%= book.title %>』</div>
+                <div class="book publish">~<%= book.title_option %>~</div>
+                <div class="book author"><%= book.author %> :著</div>
+                <div class="book publish"><%= book.publish %></div>
+                <div class="book year"><%= book.year %>年</div>
+                <div class="book page"><%= book.page %>ページ参照</div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="book-box">
-          <div class="binded-shiori">
-            <div class="quote">
-              - <%= book.quote %> -
-            </div>
-            <div class="book-information">
-              <div class="book title">引用​『<%= book.title %>』</div>
-              <div class="book publish">~<%= book.title_option %>~</div>
-              <div class="book author"><%= book.author %>: 著</div>
-              <div class="book publish"><%= book.publish %></div>
-              <div class="book year"><%= book.year %></div>
-              <div class="book page"><%= book.page %></div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="post">
-      <div class="posted-user">
-        <p>@user.nicname</p>
-        <p>何時間前</p>
+        <div class="image-area">
+          <%= image_tag book.image.variant(resize:'120 x 180'), class: "book-image" if book.image.attached? %>
+        </div>   
       </div>
-      <div class="shiori-box">
-        <div class="shiori">
-          <div class="your-bookmark">
-            自分が知ろうとしない限り、ある物事は知識へと変化しない。その物事に興味がなければ何も変わらないオブジェクトが脳にたまるだけで、それは雑学であり知識ではない。知識とはその物事に自分の考えを掛け合わせ流ことでしか生成されない。
-          </div>
-        </div>
-      </div>
-      <div class="book-box">
-        <div class="binded-shiori">
-          <div class="quote">
-            - 知ると言うことは、自分がガラッと変わることです。したがって、世界が全く変わってしまう。見え方が変わってしまう。それが昨日までとほとんど同じ世界でも。-
-          </div>
-          <div class="book-information">
-            <div class="book title">引用​『バカの壁』</div>
-            <div class="book author">養老孟子 : 著</div>
-            <div class="book publish">新潮新書</div>
-            <div class="book year">2003年</div>
-            <div class="book page">P60~</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="post">
-      <div class="posted-user">
-        <p>@user.nicname</p>
-        <p>何時間前</p>
-      </div>
-      <div class="shiori-box">
-        <div class="shiori">
-          <div class="your-bookmark">
-            自分が知ろうとしない限り、ある物事は知識へと変化しない。その物事に興味がなければ何も変わらないオブジェクトが脳にたまるだけで、それは雑学であり知識ではない。知識とはその物事に自分の考えを掛け合わせ流ことでしか生成されない。
-          </div>
-        </div>
-      </div>
-      <div class="book-box">
-        <div class="binded-shiori">
-          <div class="quote">
-            - 知ると言うことは、自分がガラッと変わることです。したがって、世界が全く変わってしまう。見え方が変わってしまう。それが昨日までとほとんど同じ世界でも。-
-          </div>
-          <div class="book-information">
-            <div class="book title">引用​『バカの壁』</div>
-            <div class="book author">養老孟子 : 著</div>
-            <div class="book publish">新潮新書</div>
-            <div class="book year">2003年</div>
-            <div class="book page">P60~</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="post">
-      <div class="posted-user">
-        <p>@user.nicname</p>
-        <p>何時間前</p>
-      </div>
-      <div class="shiori-box">
-        <div class="shiori">
-          <div class="your-bookmark">
-            自分が知ろうとしない限り、ある物事は知識へと変化しない。その物事に興味がなければ何も変わらないオブジェクトが脳にたまるだけで、それは雑学であり知識ではない。知識とはその物事に自分の考えを掛け合わせ流ことでしか生成されない。
-          </div>
-        </div>
-      </div>
-      <div class="book-box">
-        <div class="binded-shiori">
-          <div class="quote">
-            - 知ると言うことは、自分がガラッと変わることです。したがって、世界が全く変わってしまう。見え方が変わってしまう。それが昨日までとほとんど同じ世界でも。-
-          </div>
-          <div class="book-information">
-            <div class="book title">引用​『バカの壁』</div>
-            <div class="book author">養老孟子 : 著</div>
-            <div class="book publish">新潮新書</div>
-            <div class="book year">2003年</div>
-            <div class="book page">P60~</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="post">
-      <div class="posted-user">
-        <p>@user.nicname</p>
-        <p>何時間前</p>
-      </div>
-      <div class="shiori-box">
-        <div class="shiori">
-          <div class="your-bookmark">
-            自分が知ろうとしない限り、ある物事は知識へと変化しない。その物事に興味がなければ何も変わらないオブジェクトが脳にたまるだけで、それは雑学であり知識ではない。知識とはその物事に自分の考えを掛け合わせ流ことでしか生成されない。
-          </div>
-        </div>
-      </div>
-      <div class="book-box">
-        <div class="binded-shiori">
-          <div class="quote">
-            - 知ると言うことは、自分がガラッと変わることです。したがって、世界が全く変わってしまう。見え方が変わってしまう。それが昨日までとほとんど同じ世界でも。-
-          </div>
-          <div class="book-information">
-            <div class="book title">引用​『バカの壁』</div>
-            <div class="book author">養老孟子 : 著</div>
-            <div class="book publish">新潮新書</div>
-            <div class="book year">2003年</div>
-            <div class="book page">P60~</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <% end %>  
   </div>
   <div class="side-wrapper">
     <div class="top3">

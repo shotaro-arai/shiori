@@ -9,7 +9,6 @@ class BooksController < ApplicationController
   end
 
   def create
-    binding.pry
     @book = Book.new(book_params)
     if @book.valid? 
       @book.save
@@ -20,7 +19,7 @@ class BooksController < ApplicationController
   end
 
   private
-
+  
   def book_params
     params.require(:book).permit(:text,:quote,:title,:title_option, :author,:publish,:year,:page, :image).merge(user_id: params[:format])
   end

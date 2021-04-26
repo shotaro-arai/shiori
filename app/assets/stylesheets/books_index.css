@@ -15,6 +15,7 @@
 .catch-copy{
   padding: 20px 22px;
   border-bottom: 1px black;
+  width: 750px;
 }
 
 .catch-copy span{
@@ -54,16 +55,19 @@
   height: 230px;
   width:760px;
   padding: 10px;
-  border-bottom:1px dashed rgb(136, 101, 37)
+  border-bottom:1px dashed rgb(136, 101, 37);
+  display:flex;
 }
 
-.posted-user{
+.text-area{
+  width: 730px;
+}
+
+.who-is-post{
   display: flex;
   height: 25px;
   width: 760px;
 }
-
-
 
 .shiori-box{
   width:65vw;
@@ -79,15 +83,17 @@
   -webkit-clip-path: polygon(0 0,650px 0, 100% 50%, 650px 100%, 0 100%);
 }
 
-.book-box{
+.text-for{
+  font-size: 14px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
 
+.book-box{
   margin-right: 20px;
-  position: relative;
-  z-index: 1;
   background-color: rgba(0, 0, 0, 0);
 }
 
-.binded-shiori{
+.binding-shiori{
   height:70px;
 }
 
@@ -101,7 +107,6 @@
 .book-information{
   display: flex;
   justify-content: flex-end;
-
   height: 25px;
 }
 
@@ -110,9 +115,12 @@
   margin-right: 10px;
 }
 
-.your-bookmark{
-  font-size: 14px;
-  font-family: 'Noto Sans JP', sans-serif;
+.book-image{
+  margin-top: 10px;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 2px 2px 2px rgb(39, 39, 39);
+  border-radius: 5px 0 0 5px/5px;
 }
 
 
