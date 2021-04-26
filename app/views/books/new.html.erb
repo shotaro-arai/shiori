@@ -7,42 +7,42 @@
     <div class="book-wrapper">
       <div class="field">
         <%= f.label :あなたのことば, class: "input-object" %>
-        <%= f.text_area :text, autofocus: true, autocomplete: "text", class: "input-box", placeholder: "必須です" %>
+        <%= f.text_area :text, autofocus: true, autocomplete: "text", class: "input-box", placeholder: "必須です。(140文字以内)" %>
       </div>
 
       <div class="field">
         <%= f.label :引用したい本の一節, class: "input-object" %>
-        <%= f.text_area :quote, autofocus: true, autocomplete: "quote", class: "input-box", placeholder: "必須です" %>
+        <%= f.text_area :quote, autofocus: true, autocomplete: "quote", class: "input-box", placeholder: "必須です。(140文字以内)" %>
       </div>
 
       <div class="field">
         <%= f.label :その本のタイトル, class: "input-object" %>
-        <%= f.text_field :title, autocomplete: "title", class: "input-box", placeholder: "必須です" %>
+        <%= f.text_field :title, autocomplete: "title", class: "input-box", placeholder: "必須です。" %>
       </div>
 
       <div class="field">
         <%= f.label :章やページタイトルなどあれば, class: "input-object" %>
-        <%= f.text_area :title_option, autocomplete: "title_option", class: "input-box", placeholder: "*任意です*"%>
+        <%= f.text_area :title_option, autocomplete: "title-option", class: "input-box title-option", placeholder: "**任意です**"%>
       </div>
 
       <div class="field">
         <%= f.label :その本の著者名, class: "input-object" %>
-        <%= f.text_field :author, autocomplete: "author", class: "input-box", placeholder: "必須です" %>
+        <%= f.text_field :author, autocomplete: "author", class: "input-box", placeholder: "必須です。" %>
       </div>
 
       <div class="field">
         <%= f.label :その本の出版社, class: "input-object" %>
-        <%= f.text_field :publish, autocomplete: "publish", class: "input-box", placeholder: "必須です" %>
+        <%= f.text_field :publish, autocomplete: "publish", class: "input-box", placeholder: "必須です。" %>
       </div>
 
       <div class="field">
         <%= f.label :その本の出版された年, class: "input-object" %>
-        <%= f.number_field :year, autocomplete: "new-password", class: "input-box", placeholder: "数字のみ、必須です" %>
+        <%= f.number_field :year, autocomplete: "new-password", class: "input-box", placeholder: "必須です。数字のみです。" %>
       </div>
 
       <div class="field">
         <%= f.label :引用先の本のページ, class: "input-object" %>
-        <%= f.number_field :page, autocomplete: "new-password", class: "input-box", placeholder: "数字のみ、必須です" %>
+        <%= f.number_field :page, autocomplete: "new-password", class: "input-box", placeholder: "必須です。数字のみです。" %>
       </div>
       <div class="field book-image-photo">
         <label>

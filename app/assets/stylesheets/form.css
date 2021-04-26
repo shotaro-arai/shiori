@@ -27,7 +27,7 @@
 .submit-box:hover{
   color: rgb(0, 204, 255);
   font-weight: bold;
-  transition: color 0.8s;
+  transition: color 0.5s;
 }
 
 .next-btn{
@@ -37,4 +37,14 @@
 .submit-box{
   font-size: 18px;
   padding-bottom: 5px;
+}
+
+::placeholder {
+  font-size: 14px;
+  color:rgba(128, 128, 238,0.7);
+}
+
+.job::placeholder, .title-option::placeholder {
+  font-size: 14px;
+  color:rgba(139, 134, 133, 0.7);
 }

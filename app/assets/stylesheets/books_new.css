@@ -28,3 +28,18 @@
   border-bottom: 1px solid rgb(211, 182, 159);
   padding-right: 10px;
 }
+
+
+/* エラーメッセージ */
+
+.error-alert{
+  margin-top:132px;
+}
+
+.error-message{
+  font-size: 14px;
+  list-style: none;
+  color: rgb(235, 124, 91);
+  margin-bottom: 10px;
+  padding-left: 100px;
+}
