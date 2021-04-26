@@ -145,3 +145,23 @@
   list-style: none;
   margin-top: 20px;
 }
+
+
+.fa-pen-nib{
+  font-size: 32px;
+  color: white;
+  position: sticky;
+  bottom: 48%;
+  left:82%;
+  z-index: 10;
+  padding: 27px 17px;
+  border-radius: 50%;
+  background-color:rgba(0, 0, 0,0.8);
+  border:1px double rgb(255, 255, 255);
+  box-shadow: 0 0 0 5px rgba(0, 0, 0,0.8);;
+}
+
+.fa-pen-nib:hover{
+  transform:scale(1.1);
+  transition-duration: 0.5s;
+}
