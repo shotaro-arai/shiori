@@ -17,7 +17,7 @@
     <div class="user-wrapper">
       <div class="field">
         <%= f.label :自己紹介しましょう, class: "input-object"  %>
-        <%= f.text_area :text, autofocus: true, autocomplete: "text", class: "input-box self-port" %>
+        <%= f.text_area :text, autofocus: true, autocomplete: "text", class: "input-box self-port", placeholder:"はじめまして、shioriです。どうぞ楽しんでいってくださいね。" %>
       </div>
       <div class="field age-field">
         <%= f.label :年齢を教えてください, class: "input-object" %>
@@ -71,7 +71,7 @@
       </div>
       <div class="field">
         <%= f.label :お仕事を教えてください, class: "input-object" %>
-        <%= f.text_field :job, autofocus: true, autocomplete: "job", placeholder: "*任意です*", class: "input-box" %>
+        <%= f.text_field :job, autofocus: true, autocomplete: "job", placeholder: "**任意です**", class: "input-box job" %>
       </div>
       <div class="actions submit-btn">
         <%= f.submit "登録する", class: "submit-box"%>

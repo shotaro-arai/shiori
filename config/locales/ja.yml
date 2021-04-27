@@ -7,3 +7,11 @@ ja:
         text: 自己紹介
         age: 年齢
         sex: 性別
+      book:
+        text: あなたのことば
+        quote: 引用した一節
+        title: 本の題名
+        author: 本の著者名
+        publish: 出版社名
+        year: 本の出版された年(西暦)
+        page: 参照したページ

@@ -1,0 +1,50 @@
+.field{
+  padding-top: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(0, 0, 0);
+}
+
+.input-object{
+  margin-bottom: 15px;
+}
+
+.input-box{
+  width: 260px;
+  padding: 2px 10px;
+  border-bottom: 1px solid rgb(211, 182, 159);
+  outline: none;
+}
+
+.actions{
+  text-align: right;
+  padding-right: 25px;
+  border-bottom: 1px dotted rgb(211, 182, 159);
+}
+
+.submit-box:hover{
+  color: rgb(0, 204, 255);
+  font-weight: bold;
+  transition: color 0.5s;
+}
+
+.next-btn{
+  padding-top: 50px;
+}
+
+.submit-box{
+  font-size: 18px;
+  padding-bottom: 5px;
+}
+
+::placeholder {
+  font-size: 14px;
+  color:rgba(128, 128, 238,0.7);
+}
+
+.job::placeholder, .title-option::placeholder {
+  font-size: 14px;
+  color:rgba(139, 134, 133, 0.7);
+}
