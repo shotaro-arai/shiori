@@ -73,6 +73,13 @@
         <%= f.label :お仕事を教えてください, class: "input-object" %>
         <%= f.text_field :job, autofocus: true, autocomplete: "job", placeholder: "*任意です*", class: "input-box" %>
       </div>
+      <div class="field profile-image-photo">
+        <label>
+          <%= f.label :プロフィール写真を選んでください, class: "input-object u-can-photo" %>
+          <i class="fas fa-camera-retro"></i>
+          <%= f.file_field :image, class:"hidden" %>
+        </label>
+      </div>
       <div class="actions submit-btn">
         <%= f.submit "登録する", class: "submit-box"%>
       </div>
