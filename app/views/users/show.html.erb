@@ -1,6 +1,7 @@
 <%= render "shares/header" %>
 
 <div class="show-user">
+  <%= image_tag @user.profile.image if @user.profile.image.attached? %>
   <%= @user.nickname %>
   <%= @user.profile.text %>
 </div>
