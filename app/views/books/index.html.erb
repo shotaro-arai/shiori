@@ -21,7 +21,7 @@
       <div class="post">
         <div class="text-area">
           <div class="who-is-post">
-            @<%= book.user.nickname %>
+            @<%= link_to book.user.nickname, user_path(book.user.id) %>
             <%= time_ago_in_words(book.created_at) %>前
           </div>
           <div class="shiori-box">
