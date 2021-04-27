@@ -8,7 +8,7 @@ class Book < ApplicationRecord
     validates :title
     validates :author
     validates :publish
-    validates :year, numericality: {only_integer: true} 
+    validates :year, numericality: {only_integer: true, less_than_or_equal_to: 2021}
     validates :page, numericality: {only_integer: true} 
   end
 end
