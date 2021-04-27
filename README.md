@@ -7,8 +7,26 @@
 
 _〜ただいま全力で実装中！〜_
 
+[![Image from Gyazo](https://i.gyazo.com/4167df72398c9f30b9d271425c428846.gif)](https://gyazo.com/4167df72398c9f30b9d271425c428846)
+
 <br>
 <br>
+
+# Who?
+<br>
+
+ ペルソナ =>
+
+_本が大好き！活字中毒。。<br>
+でもインプットがメイン<br>
+この本の感動を伝えることのできる人がいたらなぁ。。<br>
+この本で学んだ知識や気づきを誰かに話したい！_<br>
+<br>
+**そんなあなたへ**
+
+<br>
+<br>
+
 
 <!-- **URL:**
 
@@ -16,12 +34,55 @@ _〜ただいま全力で実装中！〜_
 | ------------- | - |
 | nickname | shiori |
 | password | 1q84book |
+-->
 
-# how to use?
 
-解決課題 -->
+# how to use ? 
+<br>
 
-# shioriのテーブル設計図
+- ユーザー登録 / ログイン機能
+- 新規投稿機能
+- 画像投稿機能
+
+<br>
+
+**今後実装予定！**
+
+- コメント機能
+- ユーザー編集機能
+- アカウント削除機能
+- 検索機能
+- ジャンル機能
+- いいね機能
+- プレビュー機能
+
+<br>
+
+_ユーザーログイン画面_
+
+[![Image from Gyazo](https://i.gyazo.com/85f281f9d219c2d5ccc643ffb296a6af.gif)](https://gyazo.com/85f281f9d219c2d5ccc643ffb296a6af)
+
+<br>
+<br>
+
+# Why ?
+
+本は知識、知識は人々の資産です。<br>
+少しDeepな内容を、気軽にTweetして<br>
+読者同士のコミュニケーションツールに<br>そしてあなたの今日のアウトプットに
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+# What ?
+# テーブル設計図
+
+<br>
+<br>
 
 ## usersテーブル 
 
@@ -67,9 +128,10 @@ belongs_to :user
 | ------ | ---- | ------- |
 | quote | text | null: false |
 | title | string | null: false |
+|title_option | string | |
 | author | string |null: false |
 | publish | string | null:false |
-| year | integer | |
+| year | integer | null:false |
 | page | integer | null: false |
 | text | text |null: false |
 | user_id | references | null: false, foreign_key: true |
