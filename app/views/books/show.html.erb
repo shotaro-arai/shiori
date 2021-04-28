@@ -64,22 +64,26 @@
 <% end %>
 
 <%# コメント一覧 %>
-<% @comments.each do |comment| %>
-  <div class="who-is-post">
-    <% if comment.user.profile.image.attached? %>
-      <%= image_tag comment.user.profile.image, class:"user-icon post-user-info" %>
-    <% else %>
-      <div class="no-image-icon post-user-info"><i class="fas fa-user-circle"></i></div>
-    <% end %>  
-            
-    <%= link_to comment.user.nickname, user_path(comment.user.id), class:"to-user-librali post-user-info" %>
-    <p class="posted-time post-user-info"><%= time_ago_in_words(comment.created_at) %>前</p>
-  </div>
-  <div class="shiori-box">
-    <div class="shiori">
-      <div class="text-for">
-        <%= comment.text %>
+<div class="comment-wrapper">
+  <% @comments.each do |comment| %>
+    <div class="comment-post"> 
+      <div class="who-is-post-reverse">
+        <% if comment.user.profile.image.attached? %>
+          <%= image_tag comment.user.profile.image, class:"user-icon post-user-info" %>
+        <% else %>
+          <div class="no-image-icon post-user-info"><i class="fas fa-user-circle"></i></div>
+        <% end %>  
+                
+        <%= link_to comment.user.nickname, user_path(comment.user.id), class:"to-user-librali post-user-info" %>
+        <p class="posted-time post-user-info"><%= time_ago_in_words(comment.created_at) %>前</p>
       </div>
-    </div>
-  </div>
-<% end %>
+      <div class="shiori-reverse-box">
+        <div class="shiori-reverse">
+          <div class="text-for-reverse">
+            <%= comment.text %>
+          </div>
+        </div>
+      </div>
+    <div>
+  <% end %>  
+</div>

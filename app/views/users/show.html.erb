@@ -57,6 +57,9 @@
             <% end %> 
             
             <%= time_ago_in_words(book.created_at) %>前
+            <%= link_to book_path(book.id) do %>
+              <i class="far fa-comment-alt"></i>
+            <% end %>
           </div>
           <div class="shiori-box">
             <div class="shiori">
