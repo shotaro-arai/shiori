@@ -33,6 +33,12 @@
   border: 2px solid #22a226;
 }
 
+.fa-user-circle{
+  font-size: 65px;
+  color: rgb(209, 199, 62)
+}
+
+
 .post-user-info{
   margin-right: 20px;
   text-decoration:none;
@@ -105,4 +111,25 @@
   z-index: 1;
   box-shadow: 2px 2px 2px rgb(39, 39, 39);
   border-radius: 5px 0 0 5px/5px;
+}
+
+.no-image-book{
+  width: 120px;
+  height: 180px;
+  margin-top: 80px;
+  position: absolute;
+  z-index: 1;
+  background-color: #f9f6f6;
+  box-shadow: 2px 2px 2px rgb(39, 39, 39);
+  border-radius: 5px 0 0 5px/5px;
+  display: flex;
+  align-items: center;
+}
+
+.no-image-book p{
+  color: #d0c63d;
+  font-weight:bolder;
+  transform: rotate(-20deg);
+  margin: 0 auto;
+  font-size: 20px;
 }

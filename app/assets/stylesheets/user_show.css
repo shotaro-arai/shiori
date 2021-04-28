@@ -70,6 +70,21 @@
   margin-left: 100px;
 }
 
+.no-image-prf{
+  background-color: #d0c63d;
+  width: 150px;
+  height: 150px;
+  margin-left: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-user{
+  font-size: 100px;
+  color: white;
+}
+
 .show-user-image{
   padding-top: 8px;
 }
