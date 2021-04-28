@@ -43,6 +43,7 @@
     <div class="post">
       <div class="text-area">
         <div class="who-is-post">
+          <%= image_tag book.user.profile.image, class:"user-icon post-user-info" if book.user.profile.image.attached? %>
           <%= time_ago_in_words(book.created_at) %>前
         </div>
         <div class="shiori-box">

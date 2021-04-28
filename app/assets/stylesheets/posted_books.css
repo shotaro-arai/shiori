@@ -8,7 +8,7 @@
 }
 
 .post{
-  height: 230px;
+  height: 310px;
   width:760px;
   padding: 10px;
   border-bottom:1px dashed rgb(136, 101, 37);
@@ -21,8 +21,36 @@
 
 .who-is-post{
   display: flex;
-  height: 25px;
+  height: 80px;
   width: 760px;
+  align-items: center;
+}
+
+.user-icon{
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  border: 2px solid #22a226;
+}
+
+.post-user-info{
+  margin-right: 20px;
+  text-decoration:none;
+}
+
+.to-user-librali{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.to-user-librali:hover{
+  color: rgb(67, 213, 250);
+  transition: 0.7s;
+}
+
+.posted-time{
+  font-size: 14px;
 }
 
 .shiori-box{
@@ -72,7 +100,7 @@
 }
 
 .book-image{
-  margin-top: 10px;
+  margin-top: 80px;
   position: absolute;
   z-index: 1;
   box-shadow: 2px 2px 2px rgb(39, 39, 39);
