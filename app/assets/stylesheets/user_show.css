@@ -1,0 +1,92 @@
+.librali-name{
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+
+.show-user{
+  width: 45%;
+  margin-top: 80px;
+  margin-left: 10px;
+  margin-bottom: 160px;
+
+}
+
+.prf{
+  list-style: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.prf::before{
+  content: "";
+  height: 10px;
+  width: 10px;
+  display: inline-block;
+  background-color: #e43838;
+  position: relative;
+  bottom: 1px;
+  transform: rotate(45deg);
+}
+
+.show-user-nickname{
+  font-weight: bold;
+  font-size: 16px;
+  padding-left: 13px;
+  margin-top: 5px;
+}
+
+.show-prf{
+  padding-left: 10px;
+}
+
+
+
+
+.show-user-wrapper{
+  display: flex;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.show-user-text{
+  width: 280px;
+  font-size: 14px;
+  padding: 5px 0 15px 5px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.show-user-wrapper-left{
+  border-right: 1px solid black;
+}
+
+
+.user-image{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-left: 100px;
+}
+
+.show-user-image{
+  padding-top: 8px;
+}
+
+
+.show-user-lower-contents{
+  padding-left: 5px;
+  font-style: italic;
+}
+
+.under-prf{
+  font-size: 11px;
+}
+
+.show-book{
+  font-weight: bold;
+  font-size: 24px;
+  padding-left: 22px;
+  padding-bottom: 10px;
+}

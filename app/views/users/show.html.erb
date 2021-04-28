@@ -1,7 +1,76 @@
 <%= render "shares/header" %>
 
+<div class="librali-name">
+  ここは、<%= @user.nickname %>さんのライブラリです
+</div>  
+
+
 <div class="show-user">
-  <%= image_tag @user.profile.image if @user.profile.image.attached? %>
-  <%= @user.nickname %>
-  <%= @user.profile.text %>
+  <div class="show-prf">
+    <li class="prf"> 投稿者プロフィール </li>
+    <div class="show-user-nickname">
+      <%= @user.nickname %>
+    </div>
+  </div>
+  <div class="show-user-wrapper">
+    <div class="show-user-wrapper-left">
+      <div class="show-user-text">
+        <%= @user.profile.text %>
+      </div>
+      <div class="show-user-lower-contents">
+        <div class="show-user-age under-prf">
+          <%= @user.profile.age %> / 年齢
+        </div>
+        <div class="show-user-sexe under-prf">
+          <%= @user.profile.sex %> / 性別
+        </div>
+        <div class="show-user-job under-prf">
+          <%= @user.profile.job %> / 職業
+        </div>
+      </div>
+    </div>
+    <div class="show-user-wrapper-right">
+      <div class="show-user-image">
+        <%= image_tag @user.profile.image ,class: "user-image" if @user.profile.image.attached? %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 class="show-book" >- 投稿一覧 -</h3>
+<div class="main-wrapper">
+  <% @books.each do |book| %>
+    <div class="post">
+      <div class="text-area">
+        <div class="who-is-post">
+          <%= time_ago_in_words(book.created_at) %>前
+        </div>
+        <div class="shiori-box">
+          <div class="shiori">
+            <div class="text-for">
+              <%= book.text %>
+            </div>
+          </div>
+        </div>
+        <div class="book-box">
+          <div class="binding-shiori">
+            <div class="quote">
+              - <%= book.quote %> -
+            </div>
+            <div class="book-information">
+              <div class="book title">引用元​『<%= book.title %>』</div>
+              <div class="book publish">~<%= book.title_option %>~</div>
+              <div class="book author"><%= book.author %> :著</div>
+              <div class="book publish"><%= book.publish %></div>
+              <div class="book year"><%= book.year %>年</div>
+              <div class="book page"><%= book.page %>ページ参照</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="image-area">
+        <%= image_tag book.image.variant(resize:'120 x 180'), class: "book-image" if book.image.attached? %>
+      </div>   
+    </div>
+  <% end %>  
 </div>
