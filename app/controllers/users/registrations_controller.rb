@@ -27,8 +27,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       unless @profile.valid?
         render :new_profile and return
       end
-    @user.build_profile(@profile.attributes)
     @user.save
+    @profile.user_id = @user.id
+    @profile.save
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
     redirect_to root_path
@@ -37,7 +38,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def profile_params
-    params.require(:profile).permit(:text, :age, :sex, :job)
+    params.require(:profile).permit(:text, :age, :sex, :job,:image)
   end
   # GET /resource/edit
   # def edit
