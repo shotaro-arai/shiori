@@ -1,5 +1,45 @@
-.book-show-wrapper{
-  margin-top: 50px;
-  margin-left: 30px;
+.book-show-contents{
+  padding: 20px 5px;
+  margin-top: 20px;
 }
 
+
+.comment-box{
+  border-bottom: 1px solid rgb(211, 182, 159);
+  width: 760px;
+  margin-top: 45px;
+  margin-left: 22px;
+  box-shadow: 2px 2px 2px 1px #00000073;
+}
+
+.comment-form{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+
+
+.comment-submit-btn{
+  width: 60px;
+  height: 25px;
+  background-color:white;
+  border-radius: 20%;
+  box-shadow:0px 3px rgba(85, 79, 79, 0.5);
+  position: absolute;
+  top: 10px;
+  left: 724px;
+  border: 0.5px solid rgba(202, 198, 198, 0.5);
+  margin-bottom: 10px;
+}
+
+.comment-submit-btn:hover{
+  background-color: rgb(67, 213, 250);
+  transition: 0.7s;
+}
+
+.comment-submit-btn:active{
+  box-shadow: none;
+  padding-top: 5px;
+}
