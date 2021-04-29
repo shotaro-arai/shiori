@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'profiles', to: 'users/registrations#new_profile'
     post 'profiles', to: 'users/registrations#create_profile'
-    get 'profiles', to: 'users/registrations#edit_profile'
-    patch 'profiles', to: 'users/registrations#update_profile'
   end
   
   root 'books#index'
@@ -14,5 +12,5 @@ Rails.application.routes.draw do
     resource :comments, only: :create
   end
   
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: :show
 end

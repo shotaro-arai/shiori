@@ -5,8 +5,42 @@
 </div>  
 
 
-<%= render "shares/user_page"%>
-
+<div class="show-user">
+  <div class="show-prf">
+    <li class="prf"> 投稿者プロフィール </li>
+    <div class="show-user-nickname">
+      <%= @user.nickname %>
+    </div>
+  </div>
+  <div class="show-user-wrapper">
+    <div class="show-user-wrapper-left">
+      <div class="show-user-text">
+        <%= @user.profile.text %>
+      </div>
+      <div class="show-user-lower-contents">
+        <div class="show-user-age under-prf">
+          <%= @user.profile.age %> / 年齢
+        </div>
+        <div class="show-user-sexe under-prf">
+          <%= @user.profile.sex %> / 性別
+        </div>
+        <div class="show-user-job under-prf">
+          <%= @user.profile.job %> / 職業
+        </div>
+      </div>
+    </div>
+    <div class="show-user-wrapper-right">
+      <div class="show-user-image">
+        <%# プロフィール画像の有or無で条件分岐 %>
+        <% if @user.profile.image.attached? %>
+          <%= image_tag @user.profile.image ,class: "user-image" %>
+        <% else %>
+          <div class="no-image-prf"><i class="fas fa-user"></i></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <h3 class="show-book" >- 投稿一覧 -</h3>
 <div class="user-show-contents">
