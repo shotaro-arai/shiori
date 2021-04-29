@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
   def index
-    @books = Book.all
+    @books = Book.all.order("created_at DESC")
   end
   
   def new
@@ -21,7 +21,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @comment = Comment.new
-    @comments = @book.comments.includes(:user)
+    @comments = @book.comments.includes(:user).order("created_at DESC")
   end
 
   private
