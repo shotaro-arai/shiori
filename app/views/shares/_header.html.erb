@@ -24,7 +24,7 @@
     <!-- ユーザーがログインしているときに表示 -->
     <% if user_signed_in? %>
       <div class="sign-in-user">
-        <a class="mypage" href="#">マイページ</a>
+        <%=link_to "マイページ", edit_user_path(current_user.id),class:"mypage" %>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "sign-out" %>
       </div>
     <!-- ユーザーがログインしていないときに表示 -->
