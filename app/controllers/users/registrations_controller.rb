@@ -2,7 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  # before_action :update_resource(resource, account_update_params)
 
   # GET /resource/sign_up
   def new
@@ -35,20 +35,45 @@ class Users::RegistrationsController < Devise::RegistrationsController
     redirect_to root_path
   end
 
+  # GET /resource/edit
+  def edit
+    @user = User.find(params[:format])
+  end
+
+  # PUT /resource
+  def update
+    super
+  end
+
+  def update_profile
+    @user = User.new(session["devise.regist_data"]["user"])
+    @profile = Profile.new(profile_params)
+      unless @profile.valid?
+        render :new_profile and return
+      end
+    @user.save
+    @profile.user_id = @user.id
+    @profile.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
+    redirect_to root_path
+  end
+
+
+
   private
 
   def profile_params
     params.require(:profile).permit(:text, :age, :sex, :job,:image)
   end
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
 
-  # PUT /resource
-  # def update
-  #   super
-  # end
+  def account_update_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password)
+  end
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 
   # DELETE /resource
   # def destroy
