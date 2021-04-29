@@ -1,9 +1,9 @@
 <%= render "shares/header" %>
 
 <div class="maypage-title">ここは、あなたのライブラリです</div>
-
+  
+<%=link_to "編集する", edit_user_registration_path(current_user.id), class:"edit-btn" %>
 <%= render "shares/user_page" %>
-
 
 
 <h3 class="show-book" >-あなたの本棚-</h3>
