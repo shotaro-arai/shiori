@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :profile
   has_many :books
+  has_many :comments
 
   validates :nickname, presence: true, uniqueness: true
   validates :email, uniqueness: true

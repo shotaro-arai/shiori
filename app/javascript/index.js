@@ -1,4 +1,4 @@
-$(function() {
-    $('main-wrapper').jscroll();    
-});
+// $(function() {
+//     $('main-wrapper').jscroll();    
+// });
 

@@ -15,3 +15,5 @@ ja:
         publish: 出版社名
         year: 本の出版された年(西暦)
         page: 参照したページ
+      comment:
+        text: コメント  

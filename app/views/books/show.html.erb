@@ -1,0 +1,89 @@
+<%= render "shares/header" %>
+
+<div class="book-show-contents">
+  <div class="main-wrapper">
+    <div class="post">
+      <div class="text-area">
+        <div class="who-is-post">
+
+          <%# プロフ画像の有or無で条件分岐 %>
+          <% if @book.user.profile.image.attached? %>
+            <%= image_tag @book.user.profile.image, class:"user-icon post-user-info" %>
+          <% else %>
+            <div class="no-image-icon post-user-info"><i class="fas fa-user-circle"></i></div>
+          <% end %>  
+          
+          <%= link_to @book.user.nickname, user_path(@book.user.id), class:"to-user-librali post-user-info" %>
+          <p class="posted-time post-user-info"><%= time_ago_in_words(@book.created_at) %>前</p>
+
+        </div>
+        <div class="shiori-box">
+          <div class="shiori">
+            <div class="text-for">
+              <%= @book.text %>
+            </div>
+          </div>
+        </div>
+        <div class="book-box">
+          <div class="binding-shiori">
+            <div class="quote">
+              - <%= @book.quote %> -
+            </div>
+            <div class="book-information">
+              <div class="book title">引用元​『<%= @book.title %>』</div>
+              <div class="book publish">~<%= @book.title_option %>~</div>
+              <div class="book author"><%= @book.author %> :著</div>
+              <div class="book publish"><%= @book.publish %></div>
+              <div class="book year"><%= @book.year %>年</div>
+              <div class="book page"><%= @book.page %>ページ参照</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="image-area">
+        <%# 新規投稿画像の有or無で条件分岐 %>
+        <% if @book.image.attached? %>
+          <%= image_tag @book.image.variant(resize:'120 x 180'), class: "book-image" %>
+        <% else %>
+          <div class="no-image-book">
+            <p>no image</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%# コメント投稿フォーム %>
+  <%= form_with model: [@book, @comment], class:"comment-form",id:"comment-form", local: true do |f| %>
+
+    <%= render 'shares/error_message', model: f.object %> 
+    
+    <%= hidden_field_tag :book_id, @book.id, id:"book-id" %>
+    <%= f.submit "返信", class:"comment-submit-btn", id: "comment-submit" %>
+    <%= f.text_area :text, placeholder: "コメントできます", rows: "3", class: "comment-box" %>
+  <% end %>
+
+<%# コメント一覧 %>
+<div class="comment-wrapper">
+  <% @comments.each do |comment| %>
+    <div class="comment-post"> 
+      <div class="who-is-post-reverse">
+        <% if comment.user.profile.image.attached? %>
+          <%= image_tag comment.user.profile.image, class:"user-icon post-user-info" %>
+        <% else %>
+          <div class="no-image-icon post-user-info"><i class="fas fa-user-circle"></i></div>
+        <% end %>  
+                
+        <%= link_to comment.user.nickname, user_path(comment.user.id), class:"to-user-librali post-user-info"%>
+        <p class="posted-time post-user-info"><%= time_ago_in_words(comment.created_at) %>前</p>
+      </div>
+      <div class="shiori-reverse-box">
+        <div class="shiori-reverse">
+          <div class="text-for-reverse">
+            <%= comment.text %>
+          </div>
+        </div>
+      </div>
+    <div>
+  <% end %>
+</div>

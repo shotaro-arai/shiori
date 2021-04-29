@@ -31,6 +31,9 @@
             
             <%= link_to book.user.nickname, user_path(book.user.id), class:"to-user-librali post-user-info" %>
             <p class="posted-time post-user-info"><%= time_ago_in_words(book.created_at) %>前</p>
+            <%= link_to book_path(book.id) do %>
+              <i class="far fa-comment-alt"></i>
+            <% end %>
           </div>
           <div class="shiori-box">
             <div class="shiori">
@@ -92,5 +95,7 @@
 </div>
 
 <%# 投稿フォーム遷移ボタン %>
-<a href="books/new"><i class="fas fa-pen-nib">+</i></a>
+<%= link_to new_book_path do%>
+  <i class="fas fa-pen-nib">+</i>
+<% end %>
 <footer></footer>
