@@ -53,15 +53,15 @@
     </div>
   </div>
 
+  <%# コメント投稿フォーム %>
+  <%= form_with model: [@book, @comment], class:"comment-form",id:"comment-form", local: true do |f| %>
 
-<%= form_with model: [@book, @comment], class:"comment-form", local: true do |f| %>
-
-<%= render 'shares/error_message', model: f.object %>
-
-
-  <%= f.submit "返信", class:"comment-submit-btn" %>
-  <%= f.text_area :text, placeholder: "コメントできます", rows: "3", class: "comment-box" %>
-<% end %>
+    <%= render 'shares/error_message', model: f.object %> 
+    
+    <%= hidden_field_tag :book_id, @book.id, id:"book-id" %>
+    <%= f.submit "返信", class:"comment-submit-btn", id: "comment-submit" %>
+    <%= f.text_area :text, placeholder: "コメントできます", rows: "3", class: "comment-box" %>
+  <% end %>
 
 <%# コメント一覧 %>
 <div class="comment-wrapper">
@@ -74,7 +74,7 @@
           <div class="no-image-icon post-user-info"><i class="fas fa-user-circle"></i></div>
         <% end %>  
                 
-        <%= link_to comment.user.nickname, user_path(comment.user.id), class:"to-user-librali post-user-info" %>
+        <%= link_to comment.user.nickname, user_path(comment.user.id), class:"to-user-librali post-user-info"%>
         <p class="posted-time post-user-info"><%= time_ago_in_words(comment.created_at) %>前</p>
       </div>
       <div class="shiori-reverse-box">
@@ -85,5 +85,5 @@
         </div>
       </div>
     <div>
-  <% end %>  
+  <% end %>
 </div>

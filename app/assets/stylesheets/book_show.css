@@ -53,10 +53,6 @@
   border-right: 15px solid rgb(42, 140, 165);
 }
 
-.comment-post{
-  border-bottom:1px dashed rgb(136, 101, 37);
-}
-
 .who-is-post-reverse{  
   display: flex;
   flex-direction: row-reverse;

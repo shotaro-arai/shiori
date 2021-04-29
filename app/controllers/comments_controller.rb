@@ -4,7 +4,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.valid?
       @comment.save
-      redirect_to book_path(@comment.book.id)
+      redirect_to book_path(@comment.book.id) 
+      # render json:{comment: @comment}
     else
       @book = Book.find(params[:book_id])
       @comments = @book.comments.includes(:user)
