@@ -81,7 +81,7 @@
   padding: 10px 80px 10px 10px;
   width:760px;
   height:85px;
-  background-image: linear-gradient(90deg,rgba(255 238 153 / 80%),rgb(248, 247, 245));
+  background-image: linear-gradient(90deg,rgba(255, 238, 153, 0.8),rgb(248, 247, 245));
   clip-path: polygon(0 0, 650px 0, 100% 50%, 650px 100%, 0 100%);
   -webkit-clip-path: polygon(0 0,650px 0, 100% 50%, 650px 100%, 0 100%);
 }
