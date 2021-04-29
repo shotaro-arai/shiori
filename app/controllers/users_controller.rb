@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :move_action, only:[:edit, :update]
 
   def show
     @user = User.find(params[:id])
@@ -13,4 +14,9 @@ class UsersController < ApplicationController
   def update
   end
 
+  def move_action
+    unless user_signed_in?
+      redirect_to root_path
+    end
+  end
 end

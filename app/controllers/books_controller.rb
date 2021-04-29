@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :move_action, only:[:new, :create]
 
   def index
     @books = Book.all.order("created_at DESC")
@@ -28,5 +29,11 @@ class BooksController < ApplicationController
   
   def book_params
     params.require(:book).permit(:text,:quote,:title,:title_option, :author,:publish,:year,:page, :image).merge(user_id: params[:format])
+  end
+
+  def move_action
+    unless user_signed_in?
+      redirect_to root_path, alert: "ログインしてください"
+    end
   end
 end
