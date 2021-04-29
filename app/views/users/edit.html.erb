@@ -1,0 +1,28 @@
+<%= render "shares/header" %>
+
+<div class="maypage-title">ここは、あなたのライブラリです</div>
+
+<%= render "shares/user_page" %>
+
+
+
+<h3 class="show-book" >-あなたの本棚-</h3>
+
+<div class="main-contents">
+  <div class="main-wrapper">
+    <% @books.each do |book| %>
+      <div class="post-mypage">
+        <div class="binding-shiori">
+          <div class="quote">
+            - <%= book.quote %> -
+          </div>
+          <div class="book-information">
+            <div class="book title">引用元​『<%= book.title %>』</div>
+            <div class="book publish">~<%= book.title_option %>~</div>
+            <div class="book author"><%= book.author %> :著</div>
+          </div>
+        </div>
+      </div>
+    <% end %>  
+  </div>
+</div>
