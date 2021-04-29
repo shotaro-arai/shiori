@@ -5,6 +5,13 @@
   font-size: 24px;
 }
 
+.main-wrapper-user-edit{
+  display: flex;
+  flex-direction:column-reverse;
+  width:85%;
+  border-left: 15px solid brown;
+}
+
 .post-mypage{
   height: 140px;
   width:760px;
