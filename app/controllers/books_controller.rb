@@ -25,6 +25,13 @@ class BooksController < ApplicationController
     @comments = @book.comments.includes(:user).order("created_at DESC")
   end
 
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to edit_user_path
+  end
+    
+
   private
   
   def book_params

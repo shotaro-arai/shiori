@@ -15,6 +15,8 @@ class UsersController < ApplicationController
   def update
   end
 
+  private
+
   def move_action
     redirect_to root_path unless user_signed_in?
   end
