@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :move_action, only:[:new, :create]
+  before_action :move_action_b, only:[:destroy]
 
   def index
     @books = Book.all.order("created_at DESC")
@@ -41,6 +42,12 @@ class BooksController < ApplicationController
   def move_action
     unless user_signed_in?
       redirect_to root_path, alert: "ログインしてください"
+    end
+  end
+
+  def move_action_b
+    if current_user.id != Book.find(params[:id]).user_id
+      redirect_to root_path
     end
   end
 end
