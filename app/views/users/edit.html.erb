@@ -1,6 +1,6 @@
 <%= render "shares/header" %>
 
-<div class="maypage-title">ここは、あなたのライブラリです</div>
+<div class="mypage-title">ここは、あなたのライブラリです</div>
   
 <div class="edit-btn"> 編集(予定)</div>
 <%= render "shares/user_page" %>
@@ -21,8 +21,11 @@
             <div class="book publish">~<%= book.title_option %>~</div>
             <div class="book author"><%= book.author %> :著</div>
           </div>
+          <% if book %>
+              <%= link_to "削除する", book_path(book.id), method: :delete, class: "delete-post" %>
+          <% end %>
         </div>
       </div>
-    <% end %>  
+    <% end %>
   </div>
 </div>
