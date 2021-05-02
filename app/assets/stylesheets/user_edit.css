@@ -1,4 +1,4 @@
-.maypage-title{
+.mypage-title{
   text-align: center;
   padding: 15px 0;
   margin-top: 20px;
@@ -36,7 +36,19 @@
   transition: 0.7s;
 }
 
-.edit-btn:active{
+.edit-btn:active, .delete-post{
   box-shadow: none;
   padding-top: 5px;
+}
+
+.delete-post{
+  font-size: 14px;
+  text-decoration: none;
+  color: black;
+  width: 100px;
+  background-color: rgb(245, 245, 245);
+  text-align: center;
+  border-radius: 10px;
+  box-shadow:0px 2px 1px 1px rgba(85, 79, 79, 0.5);
+  padding: 3px;
 }
