@@ -22,7 +22,7 @@
             <div class="book author"><%= book.author %> :著</div>
           </div>
           <% if book %>
-              <%= link_to "削除する", book_path, method: :delete, class: "delete-post" %>
+              <%= link_to "削除する", book_path(book.id), method: :delete, class: "delete-post" %>
           <% end %>
         </div>
       </div>
