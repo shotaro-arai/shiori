@@ -16,6 +16,11 @@ RSpec.describe Profile, type: :model do
         @profile.image = nil
         expect(@profile).to be_valid
       end
+
+      it 'user_idは紐付いてなくても登録できる' do
+        @profile.user = nil
+        expect(@profile).to be_valid
+      end
     end
 
     context "登録できない" do

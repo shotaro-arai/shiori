@@ -95,5 +95,11 @@ RSpec.describe Book, type: :model do
       @book.valid?
       expect(@book.errors.full_messages).to include("参照したページは数値で入力してください")
     end
+
+    it "userが紐付いていないと登録できない" do
+      @book.user = nil
+      @book.valid?
+      expect(@book.errors.full_messages).to include("Userを入力してください")
+    end
   end
 end
