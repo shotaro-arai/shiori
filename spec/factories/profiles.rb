@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :profile do
-    text                  {Faker::Lorem.sentence}
-    age                   {"20代"}
-    sex                   {"男"}
-    job                   {Faker::Job.title}
+    text                  { Faker::Lorem.sentence }
+    age                   { '20代' }
+    sex                   { '男' }
+    job                   { Faker::Job.title }
     association :user
 
     after(:build) do |profile|

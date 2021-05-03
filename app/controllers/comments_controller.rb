@@ -1,11 +1,11 @@
 class CommentsController < ApplicationController
-  before_action :move_action, only:[:create]
-  
+  before_action :move_action, only: [:create]
+
   def create
     @comment = Comment.new(comment_params)
     if @comment.valid?
       @comment.save
-      redirect_to book_path(@comment.book.id) 
+      redirect_to book_path(@comment.book.id)
       # render json:{comment: @comment}
     else
       @book = Book.find(params[:book_id])
@@ -21,8 +21,6 @@ class CommentsController < ApplicationController
   end
 
   def move_action
-    unless user_signed_in?
-      redirect_to root_path, alert: "ログインしてください"
-    end
+    redirect_to root_path, alert: 'ログインしてください' unless user_signed_in?
   end
 end
