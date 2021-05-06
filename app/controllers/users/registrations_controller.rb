@@ -2,7 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
-  # before_action :update_resource(resource, account_update_params)
+  before_action :account_update_params, only: :update
 
   # GET /resource/sign_up
   def new
@@ -40,7 +40,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    super
+    @user = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
+    
+    @user.email = account_update_params[:email]
+    @user.password = account_update_params[:password]
+
+    if @user.valid?
+      # bypass_sign_in @user, scope: @user_name if sign_in_after_change_password?
+      session['devise.regist_data'] = { user: @user.attributes }
+      session['devise.regist_data'][:user]['password'] = params[:user][:password]
+      @profile = @user.build_profile
+      render :edit_profile
+    else
+      render :edit
+    end
   end
 
   def update_profile
@@ -63,12 +76,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :current_password)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
-  def update_resource(resource, params)
-    resource.update_without_password(params)
-  end
 
   # DELETE /resource
   # def destroy
