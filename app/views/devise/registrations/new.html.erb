@@ -10,35 +10,5 @@
     </div>
   </div>
 
-  <%# ここからフォーム %>
-  <%= form_for(@user, url: user_registration_path) do |f| %>
-    <%= render "devise/shared/error_messages", resource: @user %>
 
-    <div class="user-wrapper">
-      <div class="field">
-        <%= f.label :あなたのニックネームを決めてください, class: "input-object" %>
-        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "input-box", placeholder: "例: shiori" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :メールアドレスを入力してください, class: "input-object" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input-box", placeholder: "例: shiori@mail" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :６文字以上でパスワードを決めてください, class: "input-object" %>
-        <%= f.password_field :password, autocomplete: "new-password", class: "input-box", placeholder: "例: 1q84hm" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :上記と同じパスワードを入力してください, class: "input-object" %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-box", placeholder: "例: 1q84hm" %>
-      </div>
-
-      <div class="actions next-btn">
-        <%= f.submit "次へすすむ", class: "submit-box" %>
-      </div>
-    </div>
-  <% end %>
-</div>
-
+<%= render 'devise/shared/new' %>
