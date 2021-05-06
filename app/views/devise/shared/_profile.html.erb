@@ -1,5 +1,5 @@
   <%# ここからフォーム %>
-  <%= form_for @profile do |f| %>
+  <%= form_for(@profile, url: profiles_path) do |f| %>
     <%= render "devise/shared/error_messages", resource: @profile %>
   
     <div class="user-wrapper">

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  before_action :account_update_params, only: :update
+  # before_action :profile_params, only: [:create_profile, :update_profile]
+
 
   # GET /resource/sign_up
   def new
@@ -42,41 +42,43 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     @user = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     
+    @user.nickname = account_update_params[:nickname]
     @user.email = account_update_params[:email]
     @user.password = account_update_params[:password]
 
     if @user.valid?
-      # bypass_sign_in @user, scope: @user_name if sign_in_after_change_password?
       session['devise.regist_data'] = { user: @user.attributes }
       session['devise.regist_data'][:user]['password'] = params[:user][:password]
-      @profile = @user.build_profile
+      @profile = Profile.find(@user.id)
       render :edit_profile
     else
+      @user
       render :edit
     end
   end
 
   def update_profile
-    @user = User.new(session['devise.regist_data']['user'])
-    @profile = Profile.new(profile_params)
-    render :new_profile and return unless @profile.valid?
-
-    @user.save
-    @profile.user_id = @user.id
-    @profile.save
+    render :edit_profile and return unless Profile.new(profile_params).valid?
+    
+    @user = User.find(session['devise.regist_data']['user']['id'])
+    @user.update(session['devise.regist_data']['user'])
+    
+    @profile = Profile.find(@user.id)
+    @profile.update(profile_params)
+    
     session['devise.regist_data']['user'].clear
-    sign_in(:user, @user)
-    redirect_to root_path
+    bypass_sign_in(@user)
+    redirect_to edit_user_path(@user.id)
   end
 
-  private
+private
 
   def profile_params
     params.require(:profile).permit(:text, :age, :sex, :job, :image)
   end
 
   def account_update_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:nickname, :email, :password, :password_confirmation)
   end
 
 
