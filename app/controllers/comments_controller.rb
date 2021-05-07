@@ -21,6 +21,6 @@ class CommentsController < ApplicationController
   end
 
   def move_action
-    redirect_to root_path, alert: 'ログインしてください' unless user_signed_in?
+    redirect_to root_path, alert: 'ログインしてください。' unless user_signed_in?
   end
 end

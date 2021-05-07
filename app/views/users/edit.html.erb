@@ -1,8 +1,10 @@
 <%= render "shares/header" %>
 
+<%= render "shares/flash_message" %>
+
 <div class="mypage-title">ここは、あなたのライブラリです</div>
   
-<div class="edit-btn"> 編集(予定)</div>
+<%= link_to "編集", edit_user_registration_path(current_user.id), class: "edit-btn"%>
 <%= render "shares/user_page" %>
 
 

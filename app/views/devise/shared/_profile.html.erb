@@ -1,0 +1,76 @@
+  <%# ここからフォーム %>
+  <%= form_for(@profile, url: profiles_path) do |f| %>
+    <%= render "devise/shared/error_messages", resource: @profile %>
+  
+    <div class="user-wrapper">
+      <div class="field">
+        <%= f.label :自己紹介しましょう, class: "input-object"  %>
+        <%= f.text_area :text, autofocus: true, autocomplete: "text", class: "input-box self-port", placeholder:"はじめまして、shioriです。どうぞ楽しんでいってくださいね。" %>
+      </div>
+      <div class="field age-field">
+        <%= f.label :年齢を教えてください, class: "input-object" %>
+        <div class="age-radio">
+          <div class="age-button">
+            <%= f.radio_button :age, "20歳以下", class: "age" %>
+            <p>20歳以下</p>
+          </div>
+          <div class="age-button">
+            <%= f.radio_button :age, "20代", class: "age" %>
+            <p>20代</p>
+          </div>  
+          <div class="age-button">
+            <%= f.radio_button :age, "30代", class: "age" %>
+            <p>30代</p>
+          </div>  
+          <div class="age-button">
+            <%= f.radio_button :age, "40代", class: "age" %>
+            <p>40代</p>
+          </div>  
+          <div class="age-button">
+            <%= f.radio_button :age, "50代", class: "age" %>
+            <p>50代</p>
+          </div>
+          <div class="age-button">
+            <%= f.radio_button :age, "60歳以上", class: "age" %>
+            <p>60歳以上</p>
+          </div>
+          <div class="age-button">
+            <%= f.radio_button :age, "秘密", class: "age" %>
+            <p>秘密</p>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :性別を教えてください, class: "input-object"  %>
+        <div class="sex-radio">
+          <div class="sex-button">
+            <%= f.radio_button :sex, "男", class: "sex" %>
+            <p>男性</p>
+          </div>
+          <div class="sex-button">
+            <%= f.radio_button :sex, "女", class: "sex" %>
+            <p>女性</p>
+          </div>
+          <div class="sex-button">
+            <%= f.radio_button :sex, "選択しない", class: "sex" %>
+            <p>選択しない</p>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :お仕事を教えてください, class: "input-object" %>
+        <%= f.text_field :job, autofocus: true, autocomplete: "job", placeholder: "**任意です**", class: "input-box job" %>
+      </div>
+      <div class="field profile-image-photo">
+        <label>
+          <%= f.label :プロフィール写真を選んでください, class: "input-object u-can-photo" %>
+          <i class="fas fa-camera-retro"></i>
+          <%= f.file_field :image, class:"hidden" %>
+        </label>
+      </div>
+      <div class="actions submit-btn">
+        <%= f.submit "登録する", class: "submit-box"%>
+      </div>
+    </div>
+  <% end %>
+</div>
