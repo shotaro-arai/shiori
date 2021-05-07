@@ -58,17 +58,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def update_profile
-    render :edit_profile and return unless Profile.new(profile_params).valid?
-    
     @user = User.find(session['devise.regist_data']['user']['id'])
-    @user.update(session['devise.regist_data']['user'])
-    
     @profile = Profile.find(@user.id)
-    @profile.update(profile_params)
     
-    session['devise.regist_data']['user'].clear
-    bypass_sign_in(@user)
-    redirect_to edit_user_path(@user.id)
+    if @profile.update(profile_params)
+       @user.update(session['devise.regist_data']['user'])
+
+       session['devise.regist_data']['user'].clear
+       bypass_sign_in(@user)
+       flash[:notice] = '変更しました。' 
+       redirect_to edit_user_path(@user.id)
+    else
+       render :edit_profile
+    end
   end
 
 private
