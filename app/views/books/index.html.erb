@@ -38,24 +38,30 @@
             <% end %>
           </div>
           <div class="shiori-box">
-            <div class="shiori">
-              <div class="text-for">
-                <%= book.text %>
-              </div>
+            <div class="text-for">
+              <%= book.text %>
             </div>
+            <blockquote>
+              <p><%= book.quote %></p>
+            </blockquote>
           </div>
           <div class="book-box">
             <div class="binding-shiori">
-              <div class="quote">
-                - <%= book.quote %> -
-              </div>
-              <div class="book-information">
-                <div class="book title">引用元​『<%= book.title %>』</div>
-                <div class="book publish">~<%= book.title_option %>~</div>
-                <div class="book author"><%= book.author %> :著</div>
-                <div class="book publish"><%= book.publish %></div>
-                <div class="book year"><%= book.year %>年</div>
-                <div class="book page"><%= book.page %>ページ参照</div>
+              <div class="shiori">
+                <div class="shiori-circle"></div>
+                <div class="book-information">
+                  <div class="book title">『<%= book.title %>』</div>
+                  <% if book.title_option.present? %>
+                    <div class="book sub-title">~<%= book.title_option %>~</div>
+                  <% end %>  
+                </div>
+                <div class="book-information">
+                  <div class="book author"><%= book.author %> /</div>
+                  <div class="book publish"><%= book.publish %> /</div>
+                  <div class="book year"><%= book.year %>年 /</div>
+                  <div class="book page"><%= book.page %>ページ /</div>
+                </div>
+                <div class="book genre"><%= book.genre.name %></div>
               </div>
             </div>
           </div>
@@ -74,7 +80,7 @@
     <% end %>  
   </div>
   <div class="side-wrapper">
-    <div class="top3">
+    <%# <div class="top3">
       <h3>人気の投稿！</h3>
       <ul>
         <li>ほにゃらら</li>
@@ -84,12 +90,12 @@
         <li>ほにゃらら</li>
           <p>誰それ</p>
       </ul>
-    </div>
+    </div> %>
     <div class="news">
       <h3>お知らせ</h3>
       <ul>
         <li>21年4月29日 shiori(テスト版)が完成しました</li>
-        <li></li>
+        <li>21年5月7日 ユーザー編集機能が追加されました</li>
         <li></li>
       <ul>
     </div>
