@@ -15,13 +15,15 @@
     <% @books.each do |book| %>
       <div class="post-mypage">
         <div class="binding-shiori">
-          <div class="quote">
-            - <%= book.quote %> -
-          </div>
+          <blockquote>
+            <p><%= book.quote %></p>
+          </blockquote>
           <div class="book-information">
-            <div class="book title">引用元​『<%= book.title %>』</div>
-            <div class="book publish">~<%= book.title_option %>~</div>
-            <div class="book author"><%= book.author %> :著</div>
+            <div class="book title">『<%= book.title %>』</div>
+            <% if book.title_option.present? %>
+              <div class="book publish">~<%= book.title_option %>~</div>
+            <% end %>  
+            <div class="book author"><%= book.author %></div>
           </div>
           <% if book %>
               <%= link_to "削除する", book_path(book.id), method: :delete, class: "delete-post" %>

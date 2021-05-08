@@ -1,7 +1,7 @@
 /* 新規投稿ページ */
 
 .book-wrapper{
-  height: 1200px;
+  height: 1260px;
   width: 550px;
   box-shadow: 10px 15px 5px rgba(0, 0, 0, 0.5);
   background-color: rgba(248, 247, 245, 0.3);
@@ -29,6 +29,21 @@
 .u-can-photo{
   border-bottom: 1px solid rgb(211, 182, 159);
   padding-right: 10px;
+}
+
+.genre-field{
+  text-align: center;
+  margin-top: 75px;
+  margin-bottom: 30px;
+}
+
+.genre-box{
+  border-bottom: 1px solid rgb(211, 182, 159);
+  background-color: rgb(245, 244, 244);
+  padding: 2px 10px;
+  margin-left: 20px;
+  text-align: center;
+  cursor: pointer;
 }
 
 

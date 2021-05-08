@@ -96,10 +96,28 @@ RSpec.describe Book, type: :model do
       expect(@book.errors.full_messages).to include('参照したページは数値で入力してください')
     end
 
-    it 'userが紐付いていないと登録できない' do
+    it 'userが紐付いていないと新規投稿できない' do
       @book.user = nil
       @book.valid?
       expect(@book.errors.full_messages).to include('Userを入力してください')
+    end
+
+    it 'genreの値がないと新規投稿できない' do
+      @book.genre_id = ' '
+      @book.valid?
+      expect(@book.errors.full_messages).to include('ジャンルを入力してください')
+    end
+
+    it 'genreの値が0だと新規投稿できない' do
+      @book.genre_id = 0
+      @book.valid?
+      expect(@book.errors.full_messages).to include('ジャンルは0以外の値にしてください')
+    end
+
+    it 'genreの値が数字でないと新規投稿できない' do
+      @book.genre_id = '政治・経済'
+      @book.valid?
+      expect(@book.errors.full_messages).to include('ジャンルは数値で入力してください')
     end
   end
 end

@@ -28,24 +28,29 @@
             <% end %>
           </div>
           <div class="shiori-box">
-            <div class="shiori">
-              <div class="text-for">
-                <%= book.text %>
-              </div>
+            <div class="text-for">
+              <%= book.text %>
             </div>
+            <blockquote>
+              <p><%= book.quote %></p>
+            </blockquote>
           </div>
           <div class="book-box">
             <div class="binding-shiori">
-              <div class="quote">
-                - <%= book.quote %> -
-              </div>
-              <div class="book-information">
-                <div class="book title">引用元​『<%= book.title %>』</div>
-                <div class="book publish">~<%= book.title_option %>~</div>
-                <div class="book author"><%= book.author %> :著</div>
-                <div class="book publish"><%= book.publish %></div>
-                <div class="book year"><%= book.year %>年</div>
-                <div class="book page"><%= book.page %>ページ参照</div>
+              <div class="shiori">
+                <div class="book-information">
+                  <div class="book title">『<%= book.title %>』</div>
+                  <% if book.title_option.present? %>
+                    <div class="book sub-title">~<%= book.title_option %>~</div>
+                  <% end %>  
+                </div>
+                <div class="book-information">
+                  <div class="book author"><%= book.author %> /</div>
+                  <div class="book publish"><%= book.publish %> /</div>
+                  <div class="book year"><%= book.year %>年 /</div>
+                  <div class="book page"><%= book.page %>ページ /</div>
+                </div>
+                <div class="book genre"><%= book.genre.name %></div>
               </div>
             </div>
           </div>

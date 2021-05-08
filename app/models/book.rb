@@ -3,6 +3,10 @@ class Book < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one_attached :image
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :genre
+  validates :genre_id, presence: true, numericality:{other_than: 0}
+
   with_options presence: true do
     validates :text, length: { minimum: 1, maximum: 140 }
     validates :quote, length: { minimum: 1, maximum: 140 }
