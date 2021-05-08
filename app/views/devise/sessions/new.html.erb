@@ -17,11 +17,11 @@
 
     <div class="user-wrapper">
       <div class="field log-in-field">
-        <%= f.label :あなたのニックネームを教えて, class: "input-object" %>
+        <%= f.label :あなたのニックネームを教えて, class: "input-object", placeholder: "例: shiori" %>
         <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "input-box" %>
       </div>
       <div class="field log-in-field">
-        <%= f.label :あなたのパスワードを教えて, class: "input-object" %>
+        <%= f.label :あなたのパスワードを教えて, class: "input-object",placeholder: "例: 1q84hm" %>
         <%= f.password_field :password, autocomplete: "new-password", class: "input-box" %>
       </div>
       <div class="actions log-in-btn">
