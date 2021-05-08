@@ -5,7 +5,7 @@ class Book < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
-  validates :genre_id, numericality:{other_than: 0}
+  validates :genre_id, presence: true, numericality:{other_than: 0}
 
   with_options presence: true do
     validates :text, length: { minimum: 1, maximum: 140 }

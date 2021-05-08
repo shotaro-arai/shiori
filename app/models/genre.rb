@@ -3,7 +3,7 @@ class Genre < ActiveHash::Base
   has_many :books
 
   self.data = [
-    {:id => 0, :name => "選択してください"},
+    {:id => 0, :name => "-----"},
     {:id => 1, :name => "文学・評論"},
     {:id => 2, :name => "ノンフィクション"},
     {:id => 3, :name => "ビジネス・経済"},
