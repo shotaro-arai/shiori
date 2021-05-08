@@ -8,6 +8,7 @@ FactoryBot.define do
     publish       { Faker::Book.publisher }
     year          { Faker::Number.between(from: 1, to: 2021) }
     page          { Faker::Number.number }
+    genre_id      { Faker::Number.between(from: 1, to: 18) }
     association :user
 
     after(:build) do |book|
