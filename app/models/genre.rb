@@ -1,6 +1,6 @@
 class Genre < ActiveHash::Base
   include ActiveHash::Associations
-  has_many :people
+  has_many :books
 
   self.data = [
     {:id => 0, :name => "選択してください"},
