@@ -1,5 +1,9 @@
 class Genre < ActiveHash::Base
+  include ActiveHash::Associations
+  has_many :people
+
   self.data = [
+    {:id => 0, :name => "ジャンル選択"},
     {:id => 1, :name => "文学・評論"},
     {:id => 2, :name => "ノンフィクション"},
     {:id => 3, :name => "ビジネス・経済"},
