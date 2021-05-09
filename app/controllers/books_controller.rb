@@ -33,7 +33,6 @@ class BooksController < ApplicationController
   end
 
   def search
-    @q = Book.ransack(params[:q])
     @results = @q.result
   end
 
