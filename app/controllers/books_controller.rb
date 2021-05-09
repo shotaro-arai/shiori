@@ -32,6 +32,11 @@ class BooksController < ApplicationController
     redirect_to edit_user_path
   end
 
+  def search
+    @q = Book.ransack(params[:q])
+    @results = @q.result
+  end
+
   private
 
   def book_params
