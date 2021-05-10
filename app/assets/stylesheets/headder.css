@@ -48,9 +48,12 @@ header{
 }
 
 
+/* 検索フォーム */
+
 .search-form{
-  padding: 0 50px;
+  padding: 0 70px;
   display: flex;
+  justify-content: space-between;
   height: 25px;
   margin-top: 34px;
   width:40%;
@@ -58,18 +61,16 @@ header{
 }
 
 .search-box{
-  width: 305px;
   border: 1px solid white;
   border-radius: 5px;
   background-color:  rgb(241, 230, 170);
   font-size: 16px;
   color: rgb(85, 79, 79);
-  padding-left: 10px;
-  padding-right: 130px;
+  padding: 0 10px;
 }
 
-.search-box::placeholder {
-  font-size: 14px;
+.search-box::placeholder{
+  font-size: 16px;
   color:rgb(82, 82, 82);
 }
 
@@ -79,6 +80,23 @@ header{
   position: absolute;
   bottom: 3px;
 }
+
+.genre-search-box{
+  border-bottom: 3px solid rgb(245, 215, 66);
+  background-color: rgb(245, 215, 66);
+  font-size: 16px;
+  color: rgb(85, 79, 79);
+  padding: 0 10px;
+  cursor: pointer;
+  margin-left: 70px;
+  margin-top: 5px;
+}
+
+.genre-search-btn{
+  border: 1px solid black;
+}
+
+
 
 .right-contents{
   width: 30%;

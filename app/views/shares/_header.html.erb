@@ -11,13 +11,21 @@
       <% else %>
         <p><%= "こんにちは ゲストさん" %></p>
       <% end %>
-    </div>  
-    <div class="search-form">
-      <input type="text" class="search-box" placeholder="検索(予定)">
-      <button type="submit" class="search-button">
-        <%= image_tag "k0202_4.png", class: "search-icon" %>
-      </button>
     </div>
+
+    <%# 検索フォーム %>
+    <%= search_form_for @q, url: search_books_path do |f| %>
+      <div class="search-form">
+        <%= f.search_field :text_or_quote_or_title_or_author_cont, class: "search-box", placeholder: "キーワード検索" %>
+        <%= f.button type: "submit", class: "search-button" do %>
+          <%= image_tag "k0202_4.png", class: "search-icon" %>
+        <% end %>
+      </div>
+    <% end %>  
+    <%= search_form_for @q, url: search_books_path do |f| %>
+      <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class: "genre-search-box"}) %>
+      <%= f.submit "ジャンルで探す", class: "genre-search-btn" %>
+    <% end %>
   </div>
 
   <div class="right-contents">
