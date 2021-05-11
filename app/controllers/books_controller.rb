@@ -33,7 +33,12 @@ class BooksController < ApplicationController
   end
 
   def search
+    if params[:q][:genre_id_eq]=="0"
+      params[:q][:genre_id_eq] = ""
+      @q = Book.ransack(params[:q])
+    end
     @results = @q.result
+    binding.pry
   end
 
   private
