@@ -37,7 +37,7 @@ class BooksController < ApplicationController
       params[:q][:genre_id_eq] = ""
       @q = Book.ransack(params[:q])
     end
-    @results = @q.result
+    @results = @q.result.order('created_at DESC')
   end
 
   private
