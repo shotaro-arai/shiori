@@ -1,0 +1,15 @@
+.search-result{
+  text-align: center;
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.search-results{
+  font-weight: bold;
+  color: rgb(82, 82, 82);
+  margin-bottom: 20px;
+  margin-left: 25px;
+  letter-spacing: 2px;
+  border-bottom: 1px solid rgb(82, 82, 82);
+  width: 72px;
+}

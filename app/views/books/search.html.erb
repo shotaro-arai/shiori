@@ -1,10 +1,7 @@
 <%= render "shares/header" %>
 
-<div>
-  <p><%= @results.length %>件ヒットしました</p>
-
-  <div>
-    <p>検索結果</p>
+  <p class="search-result"><%= @results.length %>件ヒットしました</p>
+  <p class="search-results">検索結果</p>
   <div class="main-wrapper">
     <% @results.each do |book| %>
       <div class="post">

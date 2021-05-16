@@ -38,7 +38,6 @@ class BooksController < ApplicationController
       @q = Book.ransack(params[:q])
     end
     @results = @q.result
-    binding.pry
   end
 
   private
