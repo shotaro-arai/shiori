@@ -32,6 +32,14 @@ class BooksController < ApplicationController
     redirect_to edit_user_path
   end
 
+  def search
+    if params[:q][:genre_id_eq]=="0"
+      params[:q][:genre_id_eq] = ""
+      @q = Book.ransack(params[:q])
+    end
+    @results = @q.result.order('created_at DESC')
+  end
+
   private
 
   def book_params

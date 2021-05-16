@@ -46,6 +46,17 @@
   cursor: pointer;
 }
 
+.genre-field::after{
+  content: "\025bc";
+  font-size: 10px;
+  display: block;
+  position: absolute;
+  top: 65.5rem;
+  left: 26rem;
+  color: rgb(82, 82, 82);
+  pointer-events: none;
+}
+
 
 /* エラーメッセージ */
 

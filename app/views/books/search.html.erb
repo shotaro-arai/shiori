@@ -1,0 +1,65 @@
+<%= render "shares/header" %>
+
+  <p class="search-result"><%= @results.length %>件ヒットしました</p>
+  <p class="search-results">検索結果</p>
+  <div class="main-wrapper">
+    <% @results.each do |book| %>
+      <div class="post">
+        <div class="text-area">
+          <div class="who-is-post">
+
+          <%# プロフ画像の有or無で条件分岐 %>
+            <% if book.user.profile.image.attached? %>
+              <%= image_tag book.user.profile.image, class:"user-icon post-user-info" %>
+            <% else %>
+              <div class="no-image-icon post-user-info"><i class="fas fa-user-circle"></i></div>
+            <% end %>  
+            
+            <%= link_to book.user.nickname, user_path(book.user.id), class:"to-user-librali post-user-info" %>
+            <p class="posted-time post-user-info"><%= time_ago_in_words(book.created_at) %>前</p>
+            <%= link_to book_path(book.id) do %>
+              <i class="far fa-comment-alt"></i>
+            <% end %>
+          </div>
+          <div class="shiori-box">
+            <div class="text-for">
+              <%= book.text %>
+            </div>
+            <blockquote>
+              <p><%= book.quote %></p>
+            </blockquote>
+          </div>
+          <div class="book-box">
+            <div class="binding-shiori">
+              <div class="shiori">
+                <div class="shiori-circle"></div>
+                <div class="book-information">
+                  <div class="book title">『<%= book.title %>』</div>
+                  <% if book.title_option.present? %>
+                    <div class="book sub-title">~<%= book.title_option %>~</div>
+                  <% end %>  
+                </div>
+                <div class="book-information">
+                  <div class="book author"><%= book.author %> /</div>
+                  <div class="book publish"><%= book.publish %> /</div>
+                  <div class="book year"><%= book.year %>年 /</div>
+                  <div class="book page"><%= book.page %>ページ /</div>
+                </div>
+                <div class="book genre"><%= book.genre.name %></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="image-area">
+          <%# 新規投稿画像の有or無で条件分岐 %>
+          <% if book.image.attached? %>
+            <%= image_tag book.image.variant(resize:'120 x 180'), class: "book-image" %>
+          <% else %>
+            <div class="no-image-book">
+              <p>no image</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>  
+  </div>
