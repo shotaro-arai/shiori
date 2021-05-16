@@ -5,7 +5,7 @@
 
 <br>
 
-_〜ただいまテストデプロイ中！〜_
+_〜ただいまデプロイ中！〜_
 
 [![Image from Gyazo](https://i.gyazo.com/4167df72398c9f30b9d271425c428846.gif)](https://gyazo.com/4167df72398c9f30b9d271425c428846)
 
@@ -51,15 +51,15 @@ https://shiori-210429.herokuapp.com/
 - 新規投稿機能
 - 画像投稿機能
 - コメント機能
-
+- ユーザー編集機能
+- 検索機能
+- ジャンル機能
 <br>
 
 **今後実装予定！**
 
-- ユーザー編集機能
+
 - アカウント削除機能
-- 検索機能
-- ジャンル機能
 - いいね機能
 - プレビュー機能
 
@@ -76,7 +76,11 @@ _ユーザーログイン画面_
 
 本は知識、知識は人々の資産です。<br>
 少しDeepな内容を、気軽にTweetして<br>
-読者同士のコミュニケーションツールに<br>そしてあなたの今日のアウトプットに
+読者同士のコミュニケーションツールに<br>
+そしてあなたの今日のアウトプットに<br>
+<br>
+投稿はマイページであなたの本棚に<br>
+いつでも栞をはさんだページに戻れます
 
 
 
@@ -135,12 +139,13 @@ belongs_to :user
 | ------ | ---- | ------- |
 | quote | text | null: false |
 | title | string | null: false |
-|title_option | string | |
+| title_option | string | |
 | author | string |null: false |
 | publish | string | null:false |
 | year | integer | null:false |
 | page | integer | null: false |
 | text | text |null: false |
+| genre_id | integer | null: false | 
 | user_id | references | null: false, foreign_key: true |
 
 <br>
@@ -227,3 +232,13 @@ belongs_to :tag
 # 画面遷移図
 
 [![Image from Gyazo](https://i.gyazo.com/e49e73bb6c891cb9ed0325292b50d778.png)](https://gyazo.com/e49e73bb6c891cb9ed0325292b50d778)
+
+<br>
+<br>
+
+# 環境
+
+フレームワーク => ruby on rails ver.6.0.0<br>
+言語 => html, css, ruby<br>
+データベース => mySQL<br>
+その他 => GitHub, Heroku<br>
