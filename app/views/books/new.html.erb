@@ -1,6 +1,6 @@
 <%= render "shares/header"%>
   
-  <%= form_with model: @book, url: books_path(current_user.id), local: true do |f| %>
+  <%= form_with model: @book, url: books_path(current_user.id), class:"books-new-form", local: true do |f| %>
     
     <%= render 'shares/error_message', model: f.object %>
     
@@ -57,7 +57,8 @@
         </label>
       </div>
       <div class="actions next-btn">
-        <%= f.submit "投稿します", class: "submit-box" %>
+        <%= f.submit "投稿します", class: "submit-box book-submit" %>
       </div>
+      <div id="book-image"></div>
     </div>
   <% end %>

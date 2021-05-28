@@ -1,19 +1,34 @@
-/* 新規投稿ページ */
+/*-*=*-* 新規投稿ページ *-*=*-*/
+
+/* 全体 */
+.books-new-form{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 
 .book-wrapper{
-  height: 1260px;
+  height: 1380px;
   width: 550px;
   box-shadow: 10px 15px 5px rgba(0, 0, 0, 0.5);
   background-color: rgba(248, 247, 245, 0.3);
   margin: 100px 0;
   padding-top: 80px;
   position: absolute;
-  left: 450px;
+  left: 515px;
   top: 60px;
 }
 
+/* ----------- 各項目form.css共通 ----------------*/
+
+
+/* 画像投稿 */
 .hidden{
   display: none;
+}
+
+.book-image-photo{
+  margin-top: 50px;
 }
 
 .fa-camera-retro{
@@ -31,19 +46,36 @@
   padding-right: 10px;
 }
 
+.book-wrapper .next-btn{
+  border-style: none;
+}
+
+/* プレビュー */
+#preview{
+  width: 120px;
+  height: 180px;
+  padding-top: 20px;
+}
+
+
+
+/* ジャンル選択ボックス */
 .genre-field{
   text-align: center;
   margin-top: 75px;
+  padding-left: 100px;
   margin-bottom: 30px;
+  display: flex;
 }
 
 .genre-box{
   border-bottom: 1px solid rgb(211, 182, 159);
   background-color: rgb(245, 244, 244);
-  padding: 2px 10px;
+  padding:0px 10px 5px 10px;
   margin-left: 20px;
   text-align: center;
   cursor: pointer;
+  height: 30px;
 }
 
 .genre-field::after{
@@ -51,20 +83,32 @@
   font-size: 10px;
   display: block;
   position: absolute;
-  top: 65.5rem;
-  left: 26rem;
+  top: 65.7rem;
+  left: 25rem;
   color: rgb(82, 82, 82);
   pointer-events: none;
 }
+
+
+/* 送信ボタン */
+.book-submit{
+  position: absolute;
+  top: 82.5rem;
+  left: 27rem;
+}
+
 
 
 /* エラーメッセージ */
 
 .error-alert{
   margin-top:132px;
+  width: 430px;
+  position: fixed;
 }
 
 .error-message{
+  width: 100%;
   font-size: 14px;
   list-style: none;
   color: rgb(235, 124, 91);

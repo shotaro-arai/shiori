@@ -61,7 +61,7 @@
 
 /* 登録フォーム */
 .user-wrapper{
-  height: 680px;
+  height: 710px;
   width: 550px;
   box-shadow: 10px 15px 5px rgba(0, 0, 0, 0.5);
   background-color: rgba(248, 247, 245, 0.3);
@@ -107,6 +107,17 @@
 
 .self-port{
   font-size: 16px;
+}
+
+#preview-icon{
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  border: 2px solid #22a226;
+  margin-top: 20px;
+  position: absolute;
+  top: 35rem;
+  left: 2rem;
 }
 
 /* エラーメッセージ */
