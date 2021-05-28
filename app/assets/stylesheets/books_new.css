@@ -54,7 +54,9 @@
 #preview{
   width: 120px;
   height: 180px;
-  padding-top: 20px;
+  position: absolute;
+  top: 75rem;
+  left: 8rem;
 }
 
 
