@@ -8,10 +8,16 @@ class CommentsController < ApplicationController
       redirect_to book_path(@comment.book.id)
       # render json:{comment: @comment}
     else
-      @book = Book.find(params[:book_id])
+      @book = Comment.find()
       @comments = @book.comments.includes(:user)
       render 'books/show'
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:format])
+    @comment.destroy
+    redirect_to book_path(params[:book_id])
   end
 
   private

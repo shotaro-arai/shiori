@@ -71,7 +71,8 @@
 <%# コメント一覧 %>
 <div class="comment-wrapper">
   <% @comments.each do |comment| %>
-    <div class="comment-post"> 
+    <div class="comment-post">
+    <%= link_to '削除する', book_comments_path(@book, comment), method: :delete %>
       <div class="who-is-post-reverse">
         <% if comment.user.profile.image.attached? %>
           <%= image_tag comment.user.profile.image, class:"user-icon post-user-info" %>
