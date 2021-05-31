@@ -72,7 +72,11 @@
 <div class="comment-wrapper">
   <% @comments.each do |comment| %>
     <div class="comment-post">
-    <%= link_to '削除する', book_comments_path(@book, comment), method: :delete %>
+      <%#---- 投稿者とユーザーが同じ場合のみ削除ボタンが出現 ----%>
+      <% if current_user.id == comment.user_id %>
+        <%= link_to '削除する', book_comments_path(@book, comment), method: :delete %>
+      <% end %>
+      
       <div class="who-is-post-reverse">
         <% if comment.user.profile.image.attached? %>
           <%= image_tag comment.user.profile.image, class:"user-icon post-user-info" %>
