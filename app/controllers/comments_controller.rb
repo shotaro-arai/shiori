@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :move_action, only: [:create]
+  before_action :move_action, only: [:create, :destroy]
+  before_action :move_action_b, only: [:destroy]
 
   def create
     @comment = Comment.new(comment_params)
@@ -28,5 +29,9 @@ class CommentsController < ApplicationController
 
   def move_action
     redirect_to root_path, alert: 'ログインしてください。' unless user_signed_in?
+  end
+
+  def move_action_b
+    redirect_to root_path if current_user.id != Comment.find(params[:format]).user_id
   end
 end
