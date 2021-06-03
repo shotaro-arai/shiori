@@ -5,7 +5,7 @@
 <div class="mypage-title">ここは、あなたのライブラリです</div>
   
 <%= link_to "編集", edit_user_registration_path(current_user.id), class: "edit-btn"%>
-<%= link_to "退会", user_registration_path(current_user.id),method: :delete, class: "delete-btn"%>
+<%= link_to "退会", user_registration_path(current_user.id), method: :delete, data:{confirm: "本当によろしいですか？"}, class: "delete-btn"%>
 
 
 <%= render "shares/user_page" %>
