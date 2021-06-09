@@ -5,7 +5,7 @@
 <div class="mypage-title">ここは、あなたのライブラリです</div>
   
 <%= link_to "編集", edit_user_registration_path(current_user.id), class: "edit-btn"%>
-<div class="delete-btn", id="delete-user", href="">退会</div>
+<div class="delete-btn", id="delete-user">退会</div>
 
 
 <%#--#--# モーダル表示 #--#--#%>
@@ -15,7 +15,7 @@
     <p>本当に退会しますか？</p>
     <div class="modal-btn">
       <%= link_to "はい", user_registration_path(current_user.id), method: :delete, id: "yes-btn"%>
-      <a id="no-btn", href="">いいえ</a>
+      <div id="no-btn">いいえ</div>
     </div>
   </div>
 </div>
