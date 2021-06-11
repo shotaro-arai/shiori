@@ -73,6 +73,7 @@
   position: fixed;
   top: 0;
   display: none;
+  z-index: 2;
 }
 
 #modal-back-ground{
@@ -88,9 +89,60 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  height: 115px;
+  width: 300px;
+  border:2px solid #a6ad3bad;
+  border-radius: 4px/4px;
+  background-color: #dedede;
+  box-shadow: 0 0 7px 0 rgb(65, 64, 64);
+}
+
+.modal-contents p{
+  text-align: center;
+  padding-top: 10px;
+  letter-spacing: 2px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.modal-btn{
+  display: flex;
+  margin-top: 2.2rem;
+  margin-left: 2rem;
+}
+
+#yes-btn{
+  text-decoration: none;
+  border-radius: 10px;
+  background-color: #ff00009e;
+  width: 6rem;
+  height: 1.8rem;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  box-shadow: 0 2px 2px 0 rgb(48, 47, 47);
+  margin-right: 2rem;
 }
 
 #no-btn{
   cursor: pointer;
-  display: inline;
+  border-radius: 10px;
+  background-color: #e6e6e673;
+  width: 6rem;
+  height: 1.8rem;
+  text-align: center;
+  font-size: 18px;
+  color: black;
+  box-shadow: 0 2px 2px 0 rgb(48, 47, 47);
+}
+
+#yes-btn:hover{
+  background-color: red;
+  transition: 0.7s;
+}
+
+#no-btn:hover{
+  background-color: white;
+  transition: 0.7s;
 }
