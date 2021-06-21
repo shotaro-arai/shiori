@@ -83,7 +83,7 @@
   position: absolute;
 }
 
-.modal-contents{
+#modal-contents{
   background-color: white;
   position: absolute;
   top: 50%;
@@ -97,7 +97,7 @@
   box-shadow: 0 0 7px 0 rgb(65, 64, 64);
 }
 
-.modal-contents p{
+#modal-contents p{
   text-align: center;
   padding-top: 10px;
   letter-spacing: 2px;
@@ -111,7 +111,7 @@
   margin-left: 2rem;
 }
 
-#yes-btn{
+.yes-btn{
   text-decoration: none;
   border-radius: 10px;
   background-color: #ff00009e;
@@ -125,7 +125,7 @@
   margin-right: 2rem;
 }
 
-#no-btn{
+.no-btn{
   cursor: pointer;
   border-radius: 10px;
   background-color: #e6e6e673;
@@ -137,7 +137,7 @@
   box-shadow: 0 2px 2px 0 rgb(48, 47, 47);
 }
 
-#yes-btn:hover{
+.yes-btn:hover{
   background-color: red;
   transition: 0.7s;
 }
@@ -145,4 +145,8 @@
 #no-btn:hover{
   background-color: white;
   transition: 0.7s;
+}
+
+.delete-post-none{
+  display: none;
 }

@@ -1,0 +1,71 @@
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const modalContents = document.getElementById("modal-contents");
+    const deleteUser = document.getElementById("delete-user");
+    const deletePost = document.getElementsByClassName("delete-btn delete-post");
+
+      deleteUser.addEventListener('click', ()=>{
+        const userDeleteHtml =`
+          <div class="delete-text">
+            <p>本当に退会しますか？</p>
+            <div class="modal-btn">
+              <%= escape_javascript(link_to "はい", user_registration_path(current_user.id), method: :delete, class: "yes-btn") %>
+              <div class="no-btn" id="no-btn-user">いいえ</div>
+            </div>
+          </div>`
+
+        const deleteText = document.getElementsByClassName("delete-text");
+        
+        for(let i=0; i<deleteText.length; i++){
+          if(deleteText[i]){
+            deleteText[i].remove();
+          }
+        };
+        modalContents.insertAdjacentHTML("afterbegin",userDeleteHtml);
+        
+        const noBtnUser = document.getElementById('no-btn-user');
+        noBtnUser.addEventListener('click',()=>{
+          modal.style.display='none'
+        });
+      });
+
+      for(let i=0; i < deletePost.length; i++){
+        deletePost[i].addEventListener('click', ()=>{
+          const postDeleteHtml =`
+            <div class="delete-text">
+              <p>本当に削除しますか？</p>
+              <div class="modal-btn">
+                <div class="yes-btn complete-delete">はい</div>
+                <div class="no-btn" id="no-btn-post">いいえ</div>
+              </div>
+            </div>`
+
+          const deleteText = document.getElementsByClassName("delete-text");
+        
+          for(let i=0; i<deleteText.length; i++){
+            if(deleteText[i]){
+              deleteText[i].remove();
+            }
+          };
+          modalContents.insertAdjacentHTML("afterbegin",postDeleteHtml);
+
+        const noBtnPost = document.getElementById('no-btn-post');
+        noBtnPost.addEventListener('click',()=>{
+          modal.style.display='none'
+        });
+        
+        const completeDelete = document.getElementsByClassName("complete-delete");
+        const completeDeletePost = document.getElementsByClassName("delete-post-none");
+        for(let d=0; d<completeDelete.length; d++){
+          completeDelete[i].addEventListener("click",()=>{
+            completeDeletePost[i].click();
+          });
+        }
+
+
+      });
+    };
+  });
+  </script>

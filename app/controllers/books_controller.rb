@@ -29,6 +29,7 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
+    @user = User.find(params[:id])
     redirect_to edit_user_path
   end
 
