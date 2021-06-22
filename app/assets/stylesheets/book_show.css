@@ -23,7 +23,7 @@
 }
 
 
-.comment-delete-btn{
+.delete-comment{
   width: 100px;
   text-decoration: none;
   padding: 3px 10px;
@@ -97,4 +97,8 @@
   margin-left: 170px;
   font-size: 14px;
   font-family: 'Noto Sans JP', sans-serif;
+}
+
+.delete-comment-none{
+  display: none;
 }

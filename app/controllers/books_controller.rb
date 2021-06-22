@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :move_action, only: [:new, :create]
+  before_action :move_action, only: [:new, :create, :show]
   before_action :move_action_b, only: [:destroy]
 
   def index

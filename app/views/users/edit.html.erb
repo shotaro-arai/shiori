@@ -39,7 +39,7 @@
             <div class="book author"><%= book.author %></div>
           </div>
           <% if book %>
-          <div class="delete-btn delete-post", id="delete-post">削除</div>
+          <div class="delete-post">削除する</div>
             <%= link_to "削除する", book_path(book.id), method: :delete, class: "delete-post-none", id: "delete-post-none" %>
           <% end %>
         </div>
