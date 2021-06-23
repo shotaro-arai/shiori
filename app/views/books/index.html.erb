@@ -25,13 +25,21 @@
           <div class="who-is-post">
 
           <%# プロフ画像の有or無で条件分岐 %>
-            <% if book.user.profile.image.attached? %>
-              <%= image_tag book.user.profile.image, class:"user-icon post-user-info" %>
-            <% else %>
+          <%# 退会時の条件分岐を追加 %>
+            <% if book.user.deleted_at? || book.user.profile.image == nil %>
               <div class="no-image-icon post-user-info"><i class="fas fa-user-circle"></i></div>
+            <% elsif book.user.profile.image.attached? %>
+              <%= image_tag book.user.profile.image, class:"user-icon post-user-info" %>
             <% end %>  
             
-            <%= link_to book.user.nickname, user_path(book.user.id), class:"to-user-librali post-user-info" %>
+            <%# ユーザー名表示に退会時の条件分岐を追加 %>
+            <% if book.user.deleted_at? %>
+              <%= link_to "退会したユーザー", user_path(book.user.id), class:"to-user-librali post-user-info" %>
+            <% else %>
+              <%= link_to book.user.nickname, user_path(book.user.id), class:"to-user-librali post-user-info" %>
+            <% end %>
+            
+
             <p class="posted-time post-user-info"><%= time_ago_in_words(book.created_at) %>前</p>
             <%= link_to book_path(book.id) do %>
               <i class="far fa-comment-alt"></i>
