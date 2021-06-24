@@ -1,0 +1,106 @@
+<script>
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const modalContents = document.getElementById("modal-contents");
+    const deleteUser = document.getElementById("delete-user");
+    const deletePost = document.getElementsByClassName("delete-post");
+    const deleteComment = document.getElementsByClassName("delete-comment");
+
+
+    //投稿・コメント削除時のモーダル
+    const deleteHtml =`
+      <div class="delete-text">
+        <p>本当に削除しますか？</p>
+        <div class="modal-btn">
+          <div class="yes-btn complete-delete">はい</div>
+          <div class="no-btn" id="no-btn-post">いいえ</div>
+        </div>
+      </div>`
+
+    // 前回表示が残らないように処理
+    const removeText = function(){
+      const deleteText = document.getElementsByClassName("delete-text");
+      for(let i=0; i<deleteText.length; i++){
+        if(deleteText[i]){
+          deleteText[i].remove();
+        };
+      };
+    };
+
+    //いいえを選択するとモーダルが消える処理
+    const userNoBtn = function(){
+      const userNoBtn = document.getElementById('no-btn-user');
+      userNoBtn.addEventListener('click',()=>{
+        modal.style.display='none'
+      });
+    };
+
+    const NoBtn = function(){
+      const noBtn = document.getElementById('no-btn-post');
+      noBtn.addEventListener('click',()=>{
+        const modal = document.getElementById('modal');
+        modal.style.display='none'
+      });
+    };
+
+
+//------------------------- ユーザー削除モーダル -----------------------------//
+    if(document.URL.match(/edit/)){
+      deleteUser.addEventListener('click', ()=>{
+        const userDeleteHtml =`
+          <div class="delete-text">
+            <p>本当に退会しますか？</p>
+            <div class="modal-btn">
+              <%= escape_javascript(link_to "はい", user_registration_path(current_user.id), method: :delete, class: "yes-btn") %>
+              <div class="no-btn" id="no-btn-user">いいえ</div>
+            </div>
+          </div>`
+
+        removeText();
+        modalContents.insertAdjacentHTML("afterbegin",userDeleteHtml);
+        
+        userNoBtn();
+      });
+
+
+//------------------------- 投稿削除モーダル -----------------------------//
+      for(let i=0; i < deletePost.length; i++){
+        deletePost[i].addEventListener('click', ()=>{
+          
+          removeText();
+          modalContents.insertAdjacentHTML("afterbegin",deleteHtml);
+
+          NoBtn();
+        
+          const completeDelete = document.getElementsByClassName("complete-delete");
+          const completeDeletePost = document.getElementsByClassName("delete-post-none");
+          for(let d=0; d<completeDelete.length; d++){
+            completeDelete[i].addEventListener("click",()=>{
+              completeDeletePost[i].click();
+            });
+          };
+        });
+      };
+    };
+
+//------------------------- コメント削除モーダル -----------------------------//
+    if(document.URL.match(/books/)){
+      for(let i=0; i < deleteComment.length; i++){
+        deleteComment[i].addEventListener('click', ()=>{
+          
+          removeText();
+          modalContents.insertAdjacentHTML("afterbegin",deleteHtml);
+
+          NoBtn();
+        
+          const completeDelete = document.getElementsByClassName("complete-delete");
+          const completeDeleteComment = document.getElementsByClassName("delete-comment-none");
+          for(let d=0; d<completeDelete.length; d++){
+            completeDelete[i].addEventListener("click",()=>{
+              completeDeleteComment[i].click();
+            });
+          };
+        });
+      };
+    };
+  });
+</script>

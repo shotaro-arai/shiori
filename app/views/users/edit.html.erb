@@ -5,6 +5,19 @@
 <div class="mypage-title">ここは、あなたのライブラリです</div>
   
 <%= link_to "編集", edit_user_registration_path(current_user.id), class: "edit-btn"%>
+<div class="delete-btn", id="delete-user">退会</div>
+
+
+<%#--#--# モーダル表示 #--#--#%>
+<div id="modal">
+  <div id="modal-back-ground"></div>
+  <div id="modal-contents"></div>
+
+    <%= render partial: "shares/modal_delete", locals: {books: @books} %>
+
+</div>
+<%#--#--#ここまで #--#--#%>
+
 <%= render "shares/user_page" %>
 
 
@@ -26,7 +39,8 @@
             <div class="book author"><%= book.author %></div>
           </div>
           <% if book %>
-              <%= link_to "削除する", book_path(book.id), method: :delete, class: "delete-post" %>
+          <div class="delete-post">削除する</div>
+            <%= link_to "削除する", book_path(book.id), method: :delete, class: "delete-post-none", id: "delete-post-none" %>
           <% end %>
         </div>
       </div>

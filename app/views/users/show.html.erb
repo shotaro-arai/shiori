@@ -1,7 +1,13 @@
 <%= render "shares/header" %>
 
 <div class="librali-name">
-  ここは、<%= @user.nickname %>さんのライブラリです
+<%# ユーザー名表示に退会時の条件分岐を追加 %>
+  <% if @user.deleted_at? %>
+    退会したユーザーです
+  <% else %>
+    ここは、<%= @user.nickname %>さんのライブラリです
+  <% end %>
+
 </div>  
 
 
@@ -16,11 +22,12 @@
         <div class="text-area">
           <div class="who-is-post">
             <%# プロフ画像の有or無で条件分岐 %>
-            <% if book.user.profile.image.attached? %>
-              <%= image_tag book.user.profile.image, class:"user-icon post-user-info" %>
-            <% else %>
+            <%# 退会時の条件分岐を追加 %>
+            <% if book.user.deleted_at? || book.user.profile.image == nil %>
               <div class="no-image-icon post-user-info"><i class="fas fa-user-circle"></i></div>
-            <% end %> 
+            <% elsif book.user.profile.image.attached? %>
+              <%= image_tag book.user.profile.image, class:"user-icon post-user-info" %>
+            <% end %>
             
             <%= time_ago_in_words(book.created_at) %>前
             <%= link_to book_path(book.id) do %>

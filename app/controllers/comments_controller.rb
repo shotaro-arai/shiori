@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :move_action, only: [:create]
+  before_action :move_action, only: [:create, :destroy]
+  before_action :move_action_b, only: [:destroy]
 
   def create
     @comment = Comment.new(comment_params)
@@ -8,10 +9,16 @@ class CommentsController < ApplicationController
       redirect_to book_path(@comment.book.id)
       # render json:{comment: @comment}
     else
-      @book = Book.find(params[:book_id])
+      @book = Comment.find()
       @comments = @book.comments.includes(:user)
       render 'books/show'
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:format])
+    @comment.destroy
+    redirect_to book_path(params[:book_id])
   end
 
   private
@@ -22,5 +29,9 @@ class CommentsController < ApplicationController
 
   def move_action
     redirect_to root_path, alert: 'ログインしてください。' unless user_signed_in?
+  end
+
+  def move_action_b
+    redirect_to root_path if current_user.id != Comment.find(params[:format]).user_id
   end
 end

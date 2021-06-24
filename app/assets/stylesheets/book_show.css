@@ -23,6 +23,22 @@
 }
 
 
+.delete-comment{
+  width: 100px;
+  text-decoration: none;
+  padding: 3px 10px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgb(211, 182, 159);
+  margin-right: 25rem;
+}
+
+.comment-delete-btn:hover{
+  color: rgb(235, 124, 91);
+  font-weight: bold;
+  transition: color 1s;
+}
+
 
 .comment-submit-btn{
   width: 60px;
@@ -81,4 +97,8 @@
   margin-left: 170px;
   font-size: 14px;
   font-family: 'Noto Sans JP', sans-serif;
+}
+
+.delete-comment-none{
+  display: none;
 }

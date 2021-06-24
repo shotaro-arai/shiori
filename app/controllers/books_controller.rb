@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :move_action, only: [:new, :create]
+  before_action :move_action, only: [:new, :create, :show]
   before_action :move_action_b, only: [:destroy]
 
   def index
@@ -29,6 +29,7 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
+    @user = User.find(params[:id])
     redirect_to edit_user_path
   end
 

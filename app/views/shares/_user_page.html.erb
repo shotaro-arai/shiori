@@ -2,13 +2,25 @@
   <div class="show-prf">
     <li class="prf"> 投稿者プロフィール </li>
     <div class="show-user-nickname">
-      <%= @user.nickname %>
+    
+    <%# ユーザー名表示に退会時の条件分岐を追加 %>
+      <% if @user.deleted_at? %>
+        退会したユーザーです
+      <% else %>
+        <%= @user.nickname %>
+      <% end %>
     </div>
   </div>
   <div class="show-user-wrapper">
     <div class="show-user-wrapper-left">
       <div class="show-user-text">
-        <%= @user.profile.text %>
+      
+      <%# ユーザー名表示に退会時の条件分岐を追加 %>
+        <% if @user.deleted_at? %>
+          <%= @user.profile.text = "" %>
+        <% else %>
+          <%= @user.profile.text %>
+        <% end %>
       </div>
       <div class="show-user-lower-contents">
         <div class="show-user-age under-prf">
@@ -25,11 +37,12 @@
     <div class="show-user-wrapper-right">
       <div class="show-user-image">
         <%# プロフィール画像の有or無で条件分岐 %>
-        <% if @user.profile.image.attached? %>
-          <%= image_tag @user.profile.image ,class: "user-image" %>
-        <% else %>
+        <%# 退会時の条件分岐を追加 %>
+        <% if @user.deleted_at? || @user.profile.image == nil %>
           <div class="no-image-prf"><i class="fas fa-user"></i></div>
-        <% end %>
+        <% elsif @user.profile.image.attached? %>
+          <%= image_tag @user.profile.image, class:"user-image" %>
+        <% end %>  
       </div>
     </div>
   </div>
