@@ -26,11 +26,11 @@
 .delete-comment{
   width: 100px;
   text-decoration: none;
-  padding: 3px 10px;
+  padding-top: 50px;
   text-align: center;
   color: rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid rgb(211, 182, 159);
-  margin-right: 25rem;
+  margin-right: 15rem;
 }
 
 .comment-delete-btn:hover{
