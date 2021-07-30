@@ -30,7 +30,12 @@
             <% end %>
             
             <%= time_ago_in_words(book.created_at) %>前
-            <i class="far fa-heart"></i>
+
+            <%# いいねボタン %>
+            <%= link_to create_like_path(book.id), method: :post do %>
+              <i class="far fa-heart"></i>
+            <% end %>
+            
             <%= link_to book_path(book.id) do %>
               <i class="far fa-comment-alt"></i>
             <% end %>
