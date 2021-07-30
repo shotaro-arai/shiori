@@ -25,8 +25,14 @@
           <p class="posted-time post-user-info"><%= time_ago_in_words(@book.created_at) %>前</p>
 
           <%# いいねボタン %>
-          <%= link_to create_like_path(book.id), method: :post do %>
-            <i class="far fa-heart"></i>
+          <% if current_user.liked_by?(book.id) %>
+            <%= link_to destroy_like_path(book.id), method: :delete do %>
+              <i class="far fa-heart" style="color: pink"></i>
+            <% end %>
+          <%else%>
+            <%= link_to create_like_path(book.id), method: :post do %>
+              <i class="far fa-heart"></i>
+            <% end %>
           <% end %>
           
         </div>

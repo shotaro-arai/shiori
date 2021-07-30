@@ -31,5 +31,10 @@ class User < ApplicationRecord
   # 削除したユーザーにカスタムメッセージを追加します  
   def inactive_message   
     !deleted_at ? super : :deleted_account  
-  end 
+  end
+
+  # ユーザーがいいねボタンを推しているかどうかの判別メソッド
+  def liked_by?(book_id)
+    likes.where(book_id: book_ids).exists?
+  end
 end
