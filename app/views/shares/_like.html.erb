@@ -1,0 +1,11 @@
+<%# いいねボタン %>
+
+<% if current_user.liked_by?(book.id) %>
+  <%= link_to destroy_like_path(book.id), method: :delete do %>
+    <i class="far fa-heart" style="color: pink"><%= book.likes.count %></i>
+  <% end %>
+<%else%>
+  <%= link_to create_like_path(book.id), method: :post do %>
+    <i class="far fa-heart"></i><%= book.likes.count %>
+  <% end %>
+<% end %>
