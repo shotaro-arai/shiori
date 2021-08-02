@@ -32,8 +32,10 @@
             <%= time_ago_in_words(book.created_at) %>前
 
             <%# いいねボタン %>
-            <%= render partial: "shares/like", locals:{book: book} %>
-
+            <div id = "users-show-<%= book.id %>">
+              <%= render partial: "book", locals:{book: book} %>
+            </div>
+            
             <%= link_to book_path(book.id) do %>
               <i class="far fa-comment-alt"></i>
             <% end %>
