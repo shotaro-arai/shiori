@@ -5,7 +5,7 @@
     <i class="far fa-heart" style="color: pink"><%= book.likes.count %></i>
   <% end %>
 <%else%>
-  <%= link_to create_like_path(book.id), method: :post, remote: true do %>
+  <%= link_to create_like_path(book.id), method: :post, remote: true, local: false do %>
     <i class="far fa-heart"></i><%= book.likes.count %>
   <% end %>
 <% end %>
