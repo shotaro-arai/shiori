@@ -34,7 +34,7 @@ class User < ApplicationRecord
   end
 
   # ユーザーがいいねボタンを推しているかどうかの判別メソッド
-  def liked_by?(book_id)
+  def liked_by?(book_ids)
     likes.where(book_id: book_ids).exists?
   end
 end
