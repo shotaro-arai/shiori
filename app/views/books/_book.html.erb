@@ -1,11 +1,18 @@
 <%# いいねボタン %>
 
-<% if current_user.liked_by?(book.id) %>
-  <%= link_to destroy_like_path(book.id), method: :delete, remote: true, local: false do %>
-    <i class="far fa-heart" style="color: pink"><%= book.likes.count %></i>
+<% if user_signed_in? %>
+
+  <% if current_user.liked_by?(book.id) %>
+    <%= link_to destroy_like_path(book.id), method: :delete, remote: true, local: false do %>
+      <i class="far fa-heart" style="color: pink"><%= book.likes.count %></i>
+    <% end %>
+  <%else%>
+    <%= link_to create_like_path(book.id), method: :post, remote: true, local: false do %>
+      <i class="far fa-heart"><%= book.likes.count %></i>
+    <% end %>
   <% end %>
-<%else%>
-  <%= link_to create_like_path(book.id), method: :post, remote: true, local: false do %>
-    <i class="far fa-heart"></i><%= book.likes.count %>
-  <% end %>
-<% end %>
+
+<% else %>
+  <i class="far fa-heart"><%= book.likes.count %></i>
+  
+<%end%>
