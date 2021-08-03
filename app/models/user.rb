@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_one :profile
   has_many :books
   has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :books, through: :likes
 
   validates :nickname, presence: true, uniqueness: true
   validates :email, uniqueness: true
@@ -29,5 +31,10 @@ class User < ApplicationRecord
   # 削除したユーザーにカスタムメッセージを追加します  
   def inactive_message   
     !deleted_at ? super : :deleted_account  
-  end 
+  end
+
+  # ユーザーがいいねボタンを推しているかどうかの判別メソッド
+  def liked_by?(book_ids)
+    likes.where(book_id: book_ids).exists?
+  end
 end
