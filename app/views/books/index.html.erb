@@ -92,7 +92,8 @@
         </div>
       </div>
     <% end %>
-    <%= paginate @books %>
+    <%= link_to_prev_page @books, '前のページ', class: "prev" %>
+    <%= link_to_next_page @books, '次のページ', class: "next" %>
   </div>
   <div class="side-wrapper">
     <%# <div class="top3">

@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :move_action_b, only: [:destroy]
 
   def index
-    @books = Book.all.order('created_at DESC').page(params[:page]).per(3)
+    @books = Book.all.order('created_at DESC').page(params[:page]).without_count.per(3)
   end
 
   def new
