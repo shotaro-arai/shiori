@@ -33,7 +33,7 @@
 
             <%# いいねボタン %>
             <div id = "users-show-<%= book.id %>">
-              <%= render partial: "book", locals:{book: book} %>
+              <%= render partial: "books/book", locals:{book: book} %>
             </div>
             
             <%= link_to book_path(book.id) do %>
