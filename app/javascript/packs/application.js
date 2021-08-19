@@ -8,6 +8,8 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require("jscroll")
+//require jquery.jscroll.min.js <=これではできなかった
 
 
 require("../index")
